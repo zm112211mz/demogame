@@ -1,0 +1,353 @@
+TCocosDenshion iOS
+v6
+r1
+cCheck dependencies
+cCompileC build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/CDAudioManager.o /Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CDAudioManager.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/CocosDenshion.o /Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CocosDenshion.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/SimpleAudioEngine.o /Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/SimpleAudioEngine.mm normal i386 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/SimpleAudioEngine_objc.o /Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/SimpleAudioEngine_objc.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/CDOpenALSupport.o /Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CDOpenALSupport.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cLibtool /Users/qianqian/workspace/MyGame/bin/debug/ios/libCocosDenshion\ iOS.a normal i386
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk
+c0000000053119F8A0000000000000198
+t1393663882
+s408
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/SDKSettings.plist
+c00000000535E5EAC00000000000003B4
+t1398693548
+s948
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/CoreServices/SystemVersion.plist
+c00000000535E5EB6000000000000019E
+t1398693558
+s414
+
+N/Users/qianqian/workspace/MyGame/bin/debug/ios/libCocosDenshion iOS.a
+t2
+s0
+
+N/Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion iOS.build/Objects-normal/i386/CDAudioManager.o
+t1399379761
+s91452
+
+N/Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion iOS.build/Objects-normal/i386/CDOpenALSupport.o
+t1399379761
+s14380
+
+N/Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion iOS.build/Objects-normal/i386/CocosDenshion iOS.LinkFileList
+c000000005368D7300000000000000312
+t1399379760
+s786
+
+N/Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion iOS.build/Objects-normal/i386/CocosDenshion.o
+t1399379761
+s124832
+
+N/Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion iOS.build/Objects-normal/i386/SimpleAudioEngine.o
+t1399379763
+s72196
+
+N/Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion iOS.build/Objects-normal/i386/SimpleAudioEngine_objc.o
+t1399379761
+s36320
+
+N/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CDAudioManager.m
+c00000000533AA30A000000000000787A
+t1396351754
+s30842
+
+N/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CDOpenALSupport.m
+c00000000533A99920000000000002AA4
+t1396349330
+s10916
+
+N/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CocosDenshion.m
+c00000000533A9992000000000000CE44
+t1396349330
+s52804
+
+N/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/SimpleAudioEngine.mm
+c00000000533A99920000000000001DE5
+t1396349330
+s7653
+
+N/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/SimpleAudioEngine_objc.m
+c00000000533A99920000000000001663
+t1396349330
+s5731
+
+CCheck dependencies
+r0
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependencies01de5ab00e19b941^6ea464b00e19b941^---0#1#1#--18"Check dependencies36"478A3BA7-DF5C-4C45-AD80-B30631531257-
+
+CCompileC build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/CDAudioManager.o /Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CDAudioManager.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s421072560.394302
+e421072561.974317
+r1
+xCompileC
+xbuild/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion iOS.build/Objects-normal/i386/CDAudioManager.o
+x/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CDAudioManager.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CDAudioManager.m
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CDAudioManager.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CocosDenshion.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CDConfig.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CDOpenALSupport.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection81"Compile /Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CDAudioManager.m275"[1mCompileC[0m build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/CDAudioManager.o [1m/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CDAudioManager.m[0m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler6ec166b00e19b941^2b6df9b10e19b941^---0#0#1#-19%DVTDocumentLocation2@80"file:///Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CDAudioManager.m0000000000000000^4075"[1mCompileC[0m build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/CDAudioManager.o [1m/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CDAudioManager.m[0m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/qianqian/workspace/MyGame/cocos2d/build    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/qianqian/Downloads/cocos2d-x-3.0/tools/cocos2d-console/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Werror=incompatible-pointer-types -Werror-implicit-function-declaration -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wuninitialized -Wno-unknown-pragmas -Wshadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wno-int-conversion -Wbool-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DCOCOS2D_DEBUG=1 -DUSE_FILE32API -DCC_ENABLE_CHIPMUNK_INTEGRATION=1 -DCC_TARGET_OS_IPHONE -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -fvisibility=hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=5.1.1 -I/Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/CocosDenshion\ iOS.hmap -I/Users/qianqian/workspace/MyGame/cocos2d/build/.. -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/base -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/2d -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/physics -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/math/kazmath -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/2d/platform -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/audio/include -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/editor-support -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/ui -I/Users/qianqian/workspace/MyGame/cocos2d/build/../external/chipmunk/include/chipmunk -I/Users/qianqian/workspace/MyGame/cocos2d/build/../external -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/storage -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/2d/platform/ios -I/Users/qianqian/workspace/MyGame/bin/debug/ios/include -I/Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/DerivedSources/i386 -I/Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/DerivedSources -F/Users/qianqian/workspace/MyGame/bin/debug/ios -MMD -MT dependencies -MF /Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/CDAudioManager.d --serialize-diagnostics /Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/CDAudioManager.dia -c /Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CDAudioManager.m -o /Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/CDAudioManager.o36"CF5D18F1-DF45-497C-A764-C0836E6881ED-
+b428FF40B-72CE-482C-A004-13B2C2D7A9A0
+
+CCompileC build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/CDOpenALSupport.o /Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CDOpenALSupport.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s421072561.386458
+e421072561.614546
+r1
+xCompileC
+xbuild/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion iOS.build/Objects-normal/i386/CDOpenALSupport.o
+x/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CDOpenALSupport.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CDOpenALSupport.m
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CDOpenALSupport.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CocosDenshion.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CDConfig.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection82"Compile /Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CDOpenALSupport.m277"[1mCompileC[0m build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/CDOpenALSupport.o [1m/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CDOpenALSupport.m[0m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compilerfb0563b10e19b941^97549db10e19b941^---0#0#1#-19%DVTDocumentLocation2@81"file:///Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CDOpenALSupport.m0000000000000000^4081"[1mCompileC[0m build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/CDOpenALSupport.o [1m/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CDOpenALSupport.m[0m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/qianqian/workspace/MyGame/cocos2d/build    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/qianqian/Downloads/cocos2d-x-3.0/tools/cocos2d-console/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Werror=incompatible-pointer-types -Werror-implicit-function-declaration -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wuninitialized -Wno-unknown-pragmas -Wshadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wno-int-conversion -Wbool-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DCOCOS2D_DEBUG=1 -DUSE_FILE32API -DCC_ENABLE_CHIPMUNK_INTEGRATION=1 -DCC_TARGET_OS_IPHONE -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -fvisibility=hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=5.1.1 -I/Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/CocosDenshion\ iOS.hmap -I/Users/qianqian/workspace/MyGame/cocos2d/build/.. -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/base -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/2d -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/physics -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/math/kazmath -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/2d/platform -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/audio/include -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/editor-support -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/ui -I/Users/qianqian/workspace/MyGame/cocos2d/build/../external/chipmunk/include/chipmunk -I/Users/qianqian/workspace/MyGame/cocos2d/build/../external -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/storage -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/2d/platform/ios -I/Users/qianqian/workspace/MyGame/bin/debug/ios/include -I/Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/DerivedSources/i386 -I/Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/DerivedSources -F/Users/qianqian/workspace/MyGame/bin/debug/ios -MMD -MT dependencies -MF /Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/CDOpenALSupport.d --serialize-diagnostics /Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/CDOpenALSupport.dia -c /Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CDOpenALSupport.m -o /Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/CDOpenALSupport.o36"F2F6F34F-3333-4E5C-A83F-1A074CDD6D28-
+b428FF40B-72CE-482C-A004-13B2C2D7A9A0
+
+CCompileC build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/CocosDenshion.o /Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CocosDenshion.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s421072560.394319
+e421072561.386154
+r1
+xCompileC
+xbuild/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion iOS.build/Objects-normal/i386/CocosDenshion.o
+x/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CocosDenshion.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CocosDenshion.m
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CocosDenshion.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CDConfig.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CDOpenALSupport.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection80"Compile /Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CocosDenshion.m273"[1mCompileC[0m build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/CocosDenshion.o [1m/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CocosDenshion.m[0m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler12da66b00e19b941^cade62b10e19b941^---0#0#1#-19%DVTDocumentLocation2@79"file:///Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CocosDenshion.m0000000000000000^4069"[1mCompileC[0m build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/CocosDenshion.o [1m/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CocosDenshion.m[0m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/qianqian/workspace/MyGame/cocos2d/build    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/qianqian/Downloads/cocos2d-x-3.0/tools/cocos2d-console/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Werror=incompatible-pointer-types -Werror-implicit-function-declaration -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wuninitialized -Wno-unknown-pragmas -Wshadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wno-int-conversion -Wbool-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DCOCOS2D_DEBUG=1 -DUSE_FILE32API -DCC_ENABLE_CHIPMUNK_INTEGRATION=1 -DCC_TARGET_OS_IPHONE -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -fvisibility=hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=5.1.1 -I/Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/CocosDenshion\ iOS.hmap -I/Users/qianqian/workspace/MyGame/cocos2d/build/.. -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/base -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/2d -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/physics -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/math/kazmath -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/2d/platform -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/audio/include -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/editor-support -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/ui -I/Users/qianqian/workspace/MyGame/cocos2d/build/../external/chipmunk/include/chipmunk -I/Users/qianqian/workspace/MyGame/cocos2d/build/../external -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/storage -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/2d/platform/ios -I/Users/qianqian/workspace/MyGame/bin/debug/ios/include -I/Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/DerivedSources/i386 -I/Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/DerivedSources -F/Users/qianqian/workspace/MyGame/bin/debug/ios -MMD -MT dependencies -MF /Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/CocosDenshion.d --serialize-diagnostics /Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/CocosDenshion.dia -c /Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CocosDenshion.m -o /Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/CocosDenshion.o36"BCC50240-A3C7-4131-A8A0-27BCBFD065C1-
+b428FF40B-72CE-482C-A004-13B2C2D7A9A0
+
+CCompileC build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/SimpleAudioEngine.o /Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/SimpleAudioEngine.mm normal i386 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s421072560.401200
+e421072563.603056
+r1
+xCompileC
+xbuild/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion iOS.build/Objects-normal/i386/SimpleAudioEngine.o
+x/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/SimpleAudioEngine.mm
+xnormal
+xi386
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/SimpleAudioEngine.mm
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/include/SimpleAudioEngine.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/include/Export.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/SimpleAudioEngine_objc.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CDAudioManager.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CocosDenshion.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CDConfig.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CDOpenALSupport.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/cocos2d.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/ccConfig.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/base/CCPlatformConfig.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCAction.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/base/CCRef.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/base/CCPlatformMacros.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/platform/ios/CCPlatformDefine.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/base/CCGeometry.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/ccMacros.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/base/CCConsole.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/platform/ios/CCStdC.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCActionInterval.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCNode.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/base/CCAffineTransform.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/math/kazmath/kazmath/kazmath.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/math/kazmath/kazmath/vec2.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/math/kazmath/kazmath/utility.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/math/kazmath/kazmath/vec3.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/math/kazmath/kazmath/vec4.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/math/kazmath/kazmath/mat3.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/math/kazmath/kazmath/mat4.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/math/kazmath/kazmath/quaternion.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/math/kazmath/kazmath/plane.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/math/kazmath/kazmath/aabb.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/math/kazmath/kazmath/ray2.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/math/kazmath/kazmath/ray3.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/platform/ios/CCGL.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/ccGLStateCache.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCGLProgram.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCScriptSupport.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/platform/CCCommon.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCTouch.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCEventTouch.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCEvent.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCEventKeyboard.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCProtocols.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/ccTypes.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCTexture2D.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCEventDispatcher.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCEventListener.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/base/CCVector.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCSpriteFrame.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCAnimation.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/base/CCValue.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCActionCamera.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCActionManager.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCActionEase.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCActionPageTurn3D.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCActionGrid3D.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCActionGrid.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCActionInstant.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCActionProgressTimer.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCActionTiledGrid.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCActionTween.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCActionCatmullRom.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCTweenFunction.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCAtlasNode.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/renderer/CCQuadCommand.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/renderer/CCRenderCommand.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/math/kazmath/kazmath/GL/matrix.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/renderer/CCRenderCommandPool.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/base/CCMap.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/base/CCAutoreleasePool.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/base/CCNS.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/base/CCData.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCDrawingPrimitives.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCDrawNode.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/renderer/CCCustomCommand.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCGrabber.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCConfiguration.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCGrid.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCDirector.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCLabelAtlas.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCEventType.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCLabelTTF.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCLabelBMFont.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCLabel.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCSpriteBatchNode.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCTextureAtlas.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/renderer/CCBatchCommand.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCFontAtlas.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCFontFNT.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCFont.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCLayer.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCScene.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/physics/CCPhysicsWorld.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCTransition.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCTransitionPageTurn.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCTransitionProgress.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCMenu.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCMenuItem.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCClippingNode.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/renderer/CCGroupCommand.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCMotionStreak.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCProgressTimer.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCSprite.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/physics/CCPhysicsBody.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/physics/CCPhysicsShape.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCRenderTexture.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/platform/CCImage.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCNodeGrid.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCParticleBatchNode.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCParticleSystem.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/deprecated/CCString.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/deprecated/CCArray.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/ccCArray.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/base/CCDataVisitor.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCParticleExamples.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCParticleSystemQuad.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/renderer/CCFrustum.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/renderer/CCMaterialManager.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/renderer/CCRenderMaterial.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/renderer/CCRenderer.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/physics/CCPhysicsContact.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCEventListenerCustom.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCEventCustom.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/physics/CCPhysicsJoint.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/platform/CCDevice.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/platform/CCFileUtils.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/platform/CCSAXParser.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/platform/CCThread.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/platform/ios/CCApplication.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/platform/CCApplicationProtocol.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/platform/ios/CCGLView.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/platform/CCGLViewProtocol.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCShaderCache.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/ccShaders.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCAnimationCache.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCSpriteFrameCache.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/ccUTF8.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCProfiling.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCUserDefault.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCVertex.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCIMEDelegate.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCIMEDispatcher.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCTextFieldTTF.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCTextureCache.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCParallaxNode.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCTMXLayer.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCTMXObjectGroup.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCTMXXMLParser.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCTMXTiledMap.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCTileMapAtlas.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCEventListenerTouch.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCEventListenerKeyboard.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCEventListenerMouse.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCEventMouse.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCEventAcceleration.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCEventListenerAcceleration.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCScheduler.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/uthash.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCComponent.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/2d/CCComponentContainer.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/deprecated/CCDictionary.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/deprecated/CCSet.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/deprecated/CCInteger.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/deprecated/CCFloat.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/deprecated/CCDouble.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/deprecated/CCBool.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/deprecated/CCNotificationCenter.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/deprecated/CCDeprecated.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection85"Compile /Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/SimpleAudioEngine.mm284"[1mCompileC[0m build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/SimpleAudioEngine.o [1m/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/SimpleAudioEngine.mm[0m normal i386 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler40db66b00e19b941^f2619ab30e19b941^---0#0#1#-19%DVTDocumentLocation2@84"file:///Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/SimpleAudioEngine.mm0000000000000000^4171"[1mCompileC[0m build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/SimpleAudioEngine.o [1m/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/SimpleAudioEngine.mm[0m normal i386 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/qianqian/workspace/MyGame/cocos2d/build    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/qianqian/Downloads/cocos2d-x-3.0/tools/cocos2d-console/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch i386 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Werror=incompatible-pointer-types -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wnon-virtual-dtor -Woverloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wuninitialized -Wno-unknown-pragmas -Wshadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wno-int-conversion -Wbool-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -DCOCOS2D_DEBUG=1 -DUSE_FILE32API -DCC_ENABLE_CHIPMUNK_INTEGRATION=1 -DCC_TARGET_OS_IPHONE -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -g -fvisibility=hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=5.1.1 -I/Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/CocosDenshion\ iOS.hmap -I/Users/qianqian/workspace/MyGame/cocos2d/build/.. -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/base -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/2d -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/physics -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/math/kazmath -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/2d/platform -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/audio/include -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/editor-support -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/ui -I/Users/qianqian/workspace/MyGame/cocos2d/build/../external/chipmunk/include/chipmunk -I/Users/qianqian/workspace/MyGame/cocos2d/build/../external -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/storage -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/2d/platform/ios -I/Users/qianqian/workspace/MyGame/bin/debug/ios/include -I/Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/DerivedSources/i386 -I/Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/DerivedSources -F/Users/qianqian/workspace/MyGame/bin/debug/ios -MMD -MT dependencies -MF /Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/SimpleAudioEngine.d --serialize-diagnostics /Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/SimpleAudioEngine.dia -c /Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/SimpleAudioEngine.mm -o /Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/SimpleAudioEngine.o36"510CC6CD-B912-4DDB-AA54-EFD744163BB1-
+b428FF40B-72CE-482C-A004-13B2C2D7A9A0
+
+CCompileC build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/SimpleAudioEngine_objc.o /Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/SimpleAudioEngine_objc.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s421072560.403035
+e421072561.926966
+r1
+xCompileC
+xbuild/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion iOS.build/Objects-normal/i386/SimpleAudioEngine_objc.o
+x/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/SimpleAudioEngine_objc.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/SimpleAudioEngine_objc.m
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/SimpleAudioEngine_objc.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CDAudioManager.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CocosDenshion.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CDConfig.h
+d/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/CDOpenALSupport.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection89"Compile /Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/SimpleAudioEngine_objc.m291"[1mCompileC[0m build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/SimpleAudioEngine_objc.o [1m/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/SimpleAudioEngine_objc.m[0m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compilerde5967b00e19b941^8a72edb10e19b941^---0#0#1#-19%DVTDocumentLocation2@88"file:///Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/SimpleAudioEngine_objc.m0000000000000000^4123"[1mCompileC[0m build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/SimpleAudioEngine_objc.o [1m/Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/SimpleAudioEngine_objc.m[0m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/qianqian/workspace/MyGame/cocos2d/build    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/qianqian/Downloads/cocos2d-x-3.0/tools/cocos2d-console/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Werror=incompatible-pointer-types -Werror-implicit-function-declaration -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wuninitialized -Wno-unknown-pragmas -Wshadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wno-int-conversion -Wbool-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DCOCOS2D_DEBUG=1 -DUSE_FILE32API -DCC_ENABLE_CHIPMUNK_INTEGRATION=1 -DCC_TARGET_OS_IPHONE -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -fvisibility=hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=5.1.1 -I/Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/CocosDenshion\ iOS.hmap -I/Users/qianqian/workspace/MyGame/cocos2d/build/.. -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/base -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/2d -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/physics -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/math/kazmath -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/2d/platform -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/audio/include -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/editor-support -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/ui -I/Users/qianqian/workspace/MyGame/cocos2d/build/../external/chipmunk/include/chipmunk -I/Users/qianqian/workspace/MyGame/cocos2d/build/../external -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/storage -I/Users/qianqian/workspace/MyGame/cocos2d/build/../cocos/2d/platform/ios -I/Users/qianqian/workspace/MyGame/bin/debug/ios/include -I/Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/DerivedSources/i386 -I/Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/DerivedSources -F/Users/qianqian/workspace/MyGame/bin/debug/ios -MMD -MT dependencies -MF /Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/SimpleAudioEngine_objc.d --serialize-diagnostics /Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/SimpleAudioEngine_objc.dia -c /Users/qianqian/workspace/MyGame/cocos2d/cocos/audio/ios/SimpleAudioEngine_objc.m -o /Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/SimpleAudioEngine_objc.o36"8011E1BF-C2B1-4771-ADB9-57690E7CEBD8-
+b428FF40B-72CE-482C-A004-13B2C2D7A9A0
+
+CLibtool /Users/qianqian/workspace/MyGame/bin/debug/ios/libCocosDenshion\ iOS.a normal i386
+s421072563.604274
+e421072563.646623
+r1
+xLibtool
+x/Users/qianqian/workspace/MyGame/bin/debug/ios/libCocosDenshion iOS.a
+xnormal
+xi386
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection98"[1mLibtool[0m /Users/qianqian/workspace/MyGame/bin/debug/ios/libCocosDenshion\ iOS.a normal i38698"[1mLibtool[0m /Users/qianqian/workspace/MyGame/bin/debug/ios/libCocosDenshion\ iOS.a normal i386e3c19ab30e19b941^018aa5b30e19b941^---0#0#1#--1028"[1mLibtool[0m /Users/qianqian/workspace/MyGame/bin/debug/ios/libCocosDenshion\ iOS.a normal i386    cd /Users/qianqian/workspace/MyGame/cocos2d/build    export IPHONEOS_DEPLOYMENT_TARGET=5.1.1    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/qianqian/Downloads/cocos2d-x-3.0/tools/cocos2d-console/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool -static -arch_only i386 -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -L/Users/qianqian/workspace/MyGame/bin/debug/ios -filelist /Users/qianqian/workspace/MyGame/cocos2d/build/build/cocos2d_libs.build/Debug-iphonesimulator/CocosDenshion\ iOS.build/Objects-normal/i386/CocosDenshion\ iOS.LinkFileList -o /Users/qianqian/workspace/MyGame/bin/debug/ios/libCocosDenshion\ iOS.a36"BF75CA2E-2BA1-4000-B5D6-465ABFAD1B01-
+b428FF40B-72CE-482C-A004-13B2C2D7A9A0
+

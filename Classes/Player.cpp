@@ -57,7 +57,7 @@ void Player::update (float dt) {
 
 	switch (_state) {
 	case kPlayerMoving:
-		_vector.y -= GRAVITY;
+		_vector.y -= SOLID_GRAVITY;
 		if (_hasFloated) 
 			_hasFloated = false;
 		break;
@@ -69,14 +69,14 @@ void Player::update (float dt) {
 			_vector.x *= FLOATING_FRICTION;
 
 		} else {
-			_vector.y -= GRAVITY;
+			_vector.y -= SOLID_GRAVITY;
 			_vector.x *= AIR_FRICTION;
 			_floatingTimer = 0;
 		}
 		break;
 
 	case kPlayerDying:
-		_vector.y -= GRAVITY;
+		_vector.y -= SOLID_GRAVITY;
 		_vector.x = -_speed;
 		this->setPositionX(this->getPositionX() + _vector.x);
 		break;

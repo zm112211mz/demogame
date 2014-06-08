@@ -1,10 +1,3 @@
-/*
-    文件名：    AppDelegate.cpp
-    描　述：    游戏的AppDelegate
-    创建人：    郝萌主 (博客：http://blog.csdn.net/haomengzhu)
-
-    创建日期：   2013.12.05
-*/
 #include "cocos2d.h"
 #include "CCEGLView.h"
 #include "AppDelegate.h"

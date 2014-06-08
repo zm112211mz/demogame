@@ -69,10 +69,10 @@ void Terrain::initTerrain () {
 	_blockPool->retain();
 
 	//init object pools
-	Block * block;
+	GameBlock * block;
 	for (int i = 0; i < 20; i++) {
 		//初始化街区块
-		block = Block::create();
+		block = GameBlock::create();
 		this->addChild(block);
 		_blockPool->addObject(block);
 	}
@@ -94,10 +94,10 @@ void Terrain::activateChimneysAt (Player * player) {
     
     int count = _blocks->count();
     
-	Block * block;
+	GameBlock * block;
     for (int i = 0; i < count; i++) {
         
-		block = (Block *) _blocks->objectAtIndex(i);
+		block = (GameBlock *) _blocks->objectAtIndex(i);
         if (block->getType() == kBlockGap) 
 			continue;
 
@@ -118,14 +118,14 @@ void Terrain::checkCollision (Player * player) {
 
 	//街区总块数
 	int count = _blocks->count();
-	Block * block;
+	GameBlock * block;
 	//是否在空中
 	bool inAir = true;
 	int i;
 
 	for (i = 0; i < count; i++) {
 
-		block = (Block *) _blocks->objectAtIndex(i);
+		block = (GameBlock *) _blocks->objectAtIndex(i);
 		if (block->getType() == kBlockGap) 
 			continue;
 		
@@ -147,7 +147,7 @@ void Terrain::checkCollision (Player * player) {
 	}
 
 	for (i = 0; i < count; i++) {
-		block = (Block *) _blocks->objectAtIndex(i);
+		block = (GameBlock *) _blocks->objectAtIndex(i);
 		if (block->getType() == kBlockGap) 
 			continue;
 
@@ -206,8 +206,8 @@ void Terrain::move (float xMove) {
 
 	this->setPositionX(this->getPositionX() - xMove);
 
-	Block * block;
-	block = (Block *) _blocks->objectAtIndex(0);
+	GameBlock * block;
+	block = (GameBlock *) _blocks->objectAtIndex(0);
 
 	if (this->getPositionX() + block->getWidth() < 0) {
 
@@ -216,7 +216,7 @@ void Terrain::move (float xMove) {
 
 		this->setPositionX(this->getPositionX() + block->getWidth());
 
-		float width_cnt = this->getWidth() - block->getWidth() - ((Block *) _blocks->objectAtIndex(0))->getWidth();
+		float width_cnt = this->getWidth() - block->getWidth() - ((GameBlock *) _blocks->objectAtIndex(0))->getWidth();
 		this->initBlock(block);
 		this->addBlocks(width_cnt);
 	}
@@ -228,17 +228,17 @@ void Terrain::reset() {
 	_startTerrain = false;
 
 	int count  = _blocks->count();
-	Block * block;
+	GameBlock * block;
 	int i = 0;
 	int currentWidth = 0;
 	for (i = 0; i < count; i++) {
-		block = (Block *) _blocks->objectAtIndex(i);
+		block = (GameBlock *) _blocks->objectAtIndex(i);
 		this->initBlock(block);
 		currentWidth +=  block->getWidth();
 	}
 
 	while (currentWidth < _minTerrainWidth) {
-		block = (Block *) _blockPool->objectAtIndex(_blockPoolIndex);
+		block = (GameBlock *) _blockPool->objectAtIndex(_blockPoolIndex);
 		_blockPoolIndex++;
 		if (_blockPoolIndex == _blockPool->count()) {
 			_blockPoolIndex = 0;
@@ -255,10 +255,10 @@ void Terrain::reset() {
 
 void Terrain::addBlocks(int currentWidth) {
 
-	Block * block;
+	GameBlock * block;
 	while (currentWidth < _minTerrainWidth)
 	{	
-		block = (Block *) _blockPool->objectAtIndex(_blockPoolIndex);
+		block = (GameBlock *) _blockPool->objectAtIndex(_blockPoolIndex);
 		_blockPoolIndex++;
 		if (_blockPoolIndex == _blockPool->count()) {
 			_blockPoolIndex = 0;
@@ -276,14 +276,14 @@ void Terrain::addBlocks(int currentWidth) {
 void Terrain::distributeBlocks() {
 	int count = _blocks->count();
 
-	Block * block;
-	Block * prev_block;
+	GameBlock * block;
+	GameBlock * prev_block;
 	int i;
 
 	for (i = 0; i < count; i++) {
-		block = (Block *) _blocks->objectAtIndex(i);
+		block = (GameBlock *) _blocks->objectAtIndex(i);
 		if (i != 0) {
-			prev_block = (Block *) _blocks->objectAtIndex(i - 1);
+			prev_block = (GameBlock *) _blocks->objectAtIndex(i - 1);
 			block->setPositionX( prev_block->getPositionX() + prev_block->getWidth());
 		}
 		else
@@ -293,7 +293,7 @@ void Terrain::distributeBlocks() {
 	}
 }
 
-void Terrain::initBlock(Block * block) {
+void Terrain::initBlock(GameBlock * block) {
 
 	int blockWidth;
 	int blockHeight;

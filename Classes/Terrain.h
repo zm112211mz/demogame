@@ -12,7 +12,7 @@
 #define TILE_W_SIZE 8
 
 #include "cocos2d.h"
-#include "Block.h"
+#include "GameBlock.h"
 #include "Player.h"
 
 USING_NS_CC;
@@ -46,15 +46,15 @@ class Terrain : public CCSprite {
 	void addBlocks(int currentWidth);
 
 	void distributeBlocks();
-	void initBlock(Block * block);
+	void initBlock(GameBlock * block);
 
 	inline float getWidth () {
 
 		int count = _blocks->count();
 		int width = 0;
-		Block * block;
+		GameBlock * block;
 		for (int i = 0; i < count; i++) {
-			block = (Block *) _blocks->objectAtIndex(i);
+			block = (GameBlock *) _blocks->objectAtIndex(i);
 			width += block->getWidth();
 		}
 		return width;

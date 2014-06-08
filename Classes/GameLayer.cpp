@@ -216,7 +216,7 @@ void GameLayer::update(float dt) {
     }
 }
 
-void GameLayer::ccTouchesBegan(CCSet* pTouches, CCEvent* event) {
+void GameLayer::TouchesBegan(CCSet* pTouches, CCEvent* event) {
 
 	CCTouch *touch = (CCTouch *)pTouches->anyObject();
     
@@ -282,7 +282,7 @@ void GameLayer::ccTouchesBegan(CCSet* pTouches, CCEvent* event) {
     }
 }
 
-void GameLayer::ccTouchesEnded(CCSet* pTouches, CCEvent* event) {
+void GameLayer::TouchesEnded(CCSet* pTouches, CCEvent* event) {
     if (_state == kGamePlay) {
         _player->setJumping(false);
     }

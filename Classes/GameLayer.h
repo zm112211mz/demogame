@@ -67,8 +67,8 @@ public:
 
 	void update (float dt);
 
-	virtual void ccTouchesBegan(CCSet* pTouches, CCEvent* event);
-	virtual void ccTouchesEnded(CCSet* pTouches, CCEvent* event);
+	virtual void TouchesBegan(CCSet* pTouches, CCEvent* event);
+	virtual void TouchesEnded(CCSet* pTouches, CCEvent* event);
     void showTutorial (CCObject* pSender);
     void startGame (CCObject* pSender);
 };

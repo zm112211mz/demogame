@@ -57,7 +57,15 @@ bool GameLayer::init()
 		resetGame();
 
 		//listen for touches
-		this->setTouchEnabled(true);
+		//this->setTouchEnabled(true);
+
+		auto listener = EventListenerTouchOneByOne::create();
+
+		listener->onTouchBegan = CC_CALLBACK_2(GameLayer::onTouchBegan, this);
+        listener->onTouchEnded = CC_CALLBACK_2(GameLayer::onTouchEnded, this);
+
+		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+         _touchListener = listener;
 
 		//create main loop
 		this->schedule(schedule_selector(GameLayer::update));
@@ -117,8 +125,8 @@ void GameLayer::update(float dt) {
             _hat->setVisible(true);
 
 			//旋转精灵，以度为单位
-            CCAction * rotate = CCRotateBy::create(2.0f, 660);
-            CCAction * jump = CCJumpBy::create(2.0f, ccp(0,10), _screenSize.height * 0.8f, 1);
+            Action * rotate = CCRotateBy::create(2.0f, 660);
+            Action * jump = CCJumpBy::create(2.0f, ccp(0,10), _screenSize.height * 0.8f, 1);
 			
 			//主角死亡，帽子旋转跳起
             _hat->runAction(rotate);
@@ -165,9 +173,9 @@ void GameLayer::update(float dt) {
         }
         
         int count = _clouds->count();
-        CCSprite * cloud;
+        Sprite * cloud;
         for (int i = 0; i < count; i++) {
-            cloud = (CCSprite *) _clouds->objectAtIndex(i);
+            cloud = (Sprite *) _clouds->objectAtIndex(i);
             cloud->setPositionX(cloud->getPositionX() - _player->getVector().x * 0.15f);
             if (cloud->getPositionX() + cloud->boundingBox().size.width * 0.5f < 0 )
                 cloud->setPositionX(_screenSize.width + cloud->boundingBox().size.width * 0.5f);
@@ -216,13 +224,14 @@ void GameLayer::update(float dt) {
     }
 }
 
-void GameLayer::TouchesBegan(CCSet* pTouches, CCEvent* event) {
+void GameLayer::onTouchesBegan(CCSet* pTouches, CCEvent* event) {
 
 	CCTouch *touch = (CCTouch *)pTouches->anyObject();
     
     if (touch) {
 	    
-	    CCPoint tap = touch->getLocation();
+	    Point tap = touch->getLocation();
+		log("Touch location: %d, %d", tap.x, tap.y);
         
         switch (_state) {
             
@@ -282,9 +291,82 @@ void GameLayer::TouchesBegan(CCSet* pTouches, CCEvent* event) {
     }
 }
 
-void GameLayer::TouchesEnded(CCSet* pTouches, CCEvent* event) {
+bool GameLayer::onTouchBegan(Touch *touch, Event *unused_event) {
+    
+    if (touch) {
+	    
+	    Point tap = touch->getLocation();
+		log("Touch location: %d, %d", tap.x, tap.y);
+        
+        switch (_state) {
+            
+            case kGameIntro:
+                break;
+            case kGameOver:
+                
+                if (_tryAgain->boundingBox().containsPoint(tap)) {
+                    _hat->setVisible(false);
+                    _hat->stopAllActions();
+                    _tryAgain->setVisible(false);
+                    _terrain->reset();
+                    _player->reset();
+                    
+                    resetGame();
+                }
+                break;
+                
+            case kGamePlay:
+                
+                if (_player->getState() == kPlayerFalling) {
+                    _player->setFloating ( _player->getFloating() ? false : true );
+                
+                } else {
+                    if (_player->getState() !=  kPlayerDying) {
+                        //SimpleAudioEngine::sharedEngine()->playEffect("jump.wav");
+                        _player->setJumping(true);
+                    }
+                }
+                
+                _terrain->activateChimneysAt(_player);
+                
+                break;
+            case kGameTutorial:
+                _tutorialLabel->setString("");
+                _tutorialLabel->setVisible(false);
+                _terrain->setStartTerrain ( true );
+                _state = kGamePlay;
+                break;
+            case kGameTutorialJump:
+                if (_player->getState() == kPlayerMoving) {
+                   // SimpleAudioEngine::sharedEngine()->playEffect("jump.wav");
+                    _player->setJumping(true);
+                }
+                break;
+            case kGameTutorialFloat:
+                if (!_player->getFloating()) {
+                    _player->setFloating (true);
+                    _running = true;
+                }
+                break;
+            case kGameTutorialDrop:
+                _player->setFloating (false);
+                _running = true;
+                break;
+        }
+    }
+	return true;
+}
+
+
+void GameLayer::onTouchesEnded(CCSet* pTouches, CCEvent* event) {
     if (_state == kGamePlay) {
-        _player->setJumping(false);
+        //_player->setJumping(false);
+    }
+}
+
+void GameLayer::onTouchEnded(Touch *touch, Event *unused_event) {
+    if (_state == kGamePlay) {
+        //_player->setJumping(false);
     }
 }
 
@@ -311,75 +393,80 @@ void GameLayer::startGame (CCObject* pSender) {
 
 void GameLayer::createGameScreen () {
 	//设置游戏背景
-    CCSprite * bg = CCSprite::create("bg.png");
+    Sprite * bg = Sprite::create("bg.png");
+	this->checkScaleRate( _screenSize, bg->getContentSize() );
+	
     bg->setPosition(ccp(_screenSize.width * 0.5f, _screenSize.height * 0.5f));
     this->addChild(bg, kBackground);
+
+	Action *scaleByRate = ScaleBy::create(0, _scaleRate);
+	bg->runAction(scaleByRate);
     
-	//CCSpriteFrameCache（精灵帧缓存）主要用来存放CCSpriteFrame，它没有提供特别的属性，而是提供一系列用于管理CCSpriteFrame的方法
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("sprite_sheet.plist","sprite_sheet.png");
-    _gameBatchNode = CCSpriteBatchNode::create("sprite_sheet.png", 200);
+	//SpriteFrameCache（精灵帧缓存）主要用来存放SpriteFrame，它没有提供特别的属性，而是提供一系列用于管理SpriteFrame的方法
+    SpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("sprite_sheet.plist","sprite_sheet.png");
+    _gameBatchNode = SpriteBatchNode::create("sprite_sheet.png", 200);
     this->addChild(_gameBatchNode, kMiddleground);
     
-    CCSprite * repeat;
+    Sprite * repeat;
     
-    _background = CCSprite::createWithSpriteFrameName("background.png");
+    _background = Sprite::createWithSpriteFrameName("background.png");
     _background->setAnchorPoint(ccp(0,0));
     _gameBatchNode->addChild(_background, kBackground);
     
-    repeat = CCSprite::createWithSpriteFrameName("background.png");
+    repeat = Sprite::createWithSpriteFrameName("background.png");
     repeat->setAnchorPoint(ccp(0,0));
     repeat->setPosition(ccp(repeat->getContentSize().width - 1, 0));
     _background->addChild(repeat, kBackground);
     
-    repeat = CCSprite::createWithSpriteFrameName("background.png");
+    repeat = Sprite::createWithSpriteFrameName("background.png");
     repeat->setAnchorPoint(ccp(0,0));
     repeat->setPosition(ccp(2 * (repeat->getContentSize().width - 1), 0));
     _background->addChild(repeat, kBackground);
     
 	//设置路灯
-    _foreground = CCSprite::createWithSpriteFrameName("lamp.png");
+    _foreground = Sprite::createWithSpriteFrameName("lamp.png");
     _foreground->setAnchorPoint(ccp(0,0));
     _gameBatchNode->addChild(_foreground, kForeground);
     
-    repeat = CCSprite::createWithSpriteFrameName("lamp.png");
+    repeat = Sprite::createWithSpriteFrameName("lamp.png");
     repeat->setAnchorPoint(ccp(0,0));
     repeat->setPosition(ccp(repeat->getContentSize().width * 4, 0));
     _foreground->addChild(repeat, kBackground);
     
-    repeat = CCSprite::createWithSpriteFrameName("lamp.png");
+    repeat = Sprite::createWithSpriteFrameName("lamp.png");
     repeat->setAnchorPoint(ccp(0,0));
     repeat->setPosition(ccp(repeat->getContentSize().width * 8, 0));
     _foreground->addChild(repeat, kBackground);
     
     //加入精灵云
-    CCSprite * cloud;
-    _clouds = CCArray::createWithCapacity(4);
+    Sprite * cloud;
+    _clouds = Array::createWithCapacity(4);
     _clouds->retain();
     float cloud_y;
     for (int i = 0; i < 4; i++) {
 		//云位置：一低一高一低一高显示
         cloud_y = i % 2 == 0 ? _screenSize.height * 0.7f : _screenSize.height * 0.8f;
-        cloud = CCSprite::createWithSpriteFrameName("cloud.png");
+        cloud = Sprite::createWithSpriteFrameName("cloud.png");
         cloud->setPosition(ccp (_screenSize.width * 0.15f + i * _screenSize.width * 0.25f,  cloud_y));
         _gameBatchNode->addChild(cloud, kBackground);
         _clouds->addObject(cloud);
     }
 
 	//创建地形类
-	_terrain = Terrain::create();
+	_terrain = Terrain::create(_scaleRate);
 	_gameBatchNode->addChild(_terrain, kMiddleground);
 
 	//创建主角类
-	_player = Player::create();
+	_player = Player::create(_scaleRate);
 	_gameBatchNode->addChild(_player, kBackground);
 
 	//加入logo
-    _intro = CCSprite::createWithSpriteFrameName("logo.png");
+    _intro = Sprite::createWithSpriteFrameName("logo.png");
     _intro->setPosition(ccp(_screenSize.width * 0.5f, _screenSize.height * 0.7f));
     _gameBatchNode->addChild(_intro, kForeground);
 
 	//加入重试
-    _tryAgain = CCSprite::createWithSpriteFrameName("label_tryagain.png");
+    _tryAgain = Sprite::createWithSpriteFrameName("label_tryagain.png");
     _tryAgain->setPosition(ccp(_screenSize.width * 0.5f, _screenSize.height * 0.7f));
     _tryAgain->setVisible(false);
     this->addChild(_tryAgain, kForeground);
@@ -391,21 +478,22 @@ void GameLayer::createGameScreen () {
     this->addChild(_scoreDisplay, kBackground);
     
     //加入帽子
-    _hat = CCSprite::createWithSpriteFrameName("hat.png");
+    _hat = Sprite::createWithSpriteFrameName("hat.png");
     _hat->setVisible(false);
+	_hat->setScale(_scaleRate);
     _gameBatchNode->addChild(_hat, kMiddleground);
    
 	//加入一个竞技团队
-    _jam = CCSprite::createWithSpriteFrameName("jam_1.png");
+    _jam = Sprite::createWithSpriteFrameName("jam_1.png");
     
-    CCAnimation* animation;
-    animation = CCAnimation::create();
-    CCSpriteFrame * frame;
+    Animation* animation;
+    animation = Animation::create();
+    SpriteFrame * frame;
     int i;
     for(i = 1; i <= 3; i++) {
         char szName[100] = {0};
         sprintf(szName, "jam_%i.png", i);
-        frame = CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(szName);
+        frame = SpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(szName);
         animation->addSpriteFrame(frame);
     }
     
@@ -418,30 +506,31 @@ void GameLayer::createGameScreen () {
     _gameBatchNode->addChild(_jam, kBackground);
     
     _jam->setPosition(ccp(_screenSize.width * 0.19f, _screenSize.height * 0.47f));
+	_jam->setScale(_scaleRate);
     _jamMove = CCMoveTo::create(6.0f, ccp(-_screenSize.width * 0.3f, _jam->getPositionY()));
     _jamMove->retain();
     
     //add menu
-    CCSprite * menuItemOn;
-    CCSprite * menuItemOff;
+    Sprite * menuItemOn;
+    Sprite * menuItemOff;
     //菜单有两个状态，平时展示的样子和点击的样子
-    menuItemOn = CCSprite::createWithSpriteFrameName("btn_new_on.png");
-    menuItemOff = CCSprite::createWithSpriteFrameName("btn_new_off.png");
+    menuItemOn = Sprite::createWithSpriteFrameName("btn_new_on.png");
+    menuItemOff = Sprite::createWithSpriteFrameName("btn_new_off.png");
     //New Game 菜单
     CCMenuItemSprite * starGametItem = CCMenuItemSprite::create(
                                                                 menuItemOff,
                                                                 menuItemOn,
-                                                                this,
+                                                                (cocos2d::Ref*)this,
 																//这个最重要，点击菜单调用系统哪个方法
                                                                 menu_selector(GameLayer::startGame));
     
-    menuItemOn = CCSprite::createWithSpriteFrameName("btn_howto_on.png");
-    menuItemOff = CCSprite::createWithSpriteFrameName("btn_howto_off.png");
+    menuItemOn = Sprite::createWithSpriteFrameName("btn_howto_on.png");
+    menuItemOff = Sprite::createWithSpriteFrameName("btn_howto_off.png");
     //How to Play 菜单
     CCMenuItemSprite * howToItem = CCMenuItemSprite::create(
                                                             menuItemOff,
                                                             menuItemOn,
-                                                            this,
+                                                            (cocos2d::Ref*)this,
                                                             menu_selector(GameLayer::showTutorial));
     
     _mainMenu = CCMenu::create(howToItem, starGametItem, NULL);//创建菜单
@@ -456,4 +545,9 @@ void GameLayer::createGameScreen () {
     this->addChild(_tutorialLabel, kForeground);
     _tutorialLabel->setVisible(false);
     
+}
+
+void GameLayer::checkScaleRate(Size screenSize, Size bgSize)
+{
+	this->_scaleRate = screenSize.width/bgSize.width;
 }

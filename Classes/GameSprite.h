@@ -26,8 +26,7 @@ enum {
     kSpritePuff
 };
 
-class GameSprite : public CCSprite {
-
+class GameSprite : public Sprite {
 protected:
 	CCSize _screenSize;
 
@@ -40,7 +39,7 @@ public:
 
 	CC_SYNTHESIZE(float, _height, Height);
 
-	CC_SYNTHESIZE(CCPoint, _vector, Vector);
+	CC_SYNTHESIZE(Point, _vector, Vector);
 
 	GameSprite(void);
 	~GameSprite(void);

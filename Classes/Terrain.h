@@ -21,10 +21,10 @@ using namespace std;
 //µØÐÎÀà
 class Terrain : public CCSprite {
 
-	CCArray * _blockPool;
+	Array *_blockPool;
 	int _blockPoolIndex;
 
-	CCArray * _blocks;
+	Array *_blocks;
 	int _lastBlockHeight;
 	int _lastBlockWidth;
 	int _minTerrainWidth;
@@ -42,14 +42,15 @@ class Terrain : public CCSprite {
 	float _increaseGapTimer;
 	int _gapSize;
 
-	void initTerrain (void);
+	float _scaleRate;
+
+	void initTerrain(void);
 	void addBlocks(int currentWidth);
 
 	void distributeBlocks();
 	void initBlock(GameBlock * block);
 
-	inline float getWidth () {
-
+	inline float getWidth() {
 		int count = _blocks->count();
 		int width = 0;
 		GameBlock * block;
@@ -60,23 +61,27 @@ class Terrain : public CCSprite {
 		return width;
 	}
 
-
 public:
-
 	Terrain(void);
 	~Terrain(void);
 
 	CC_SYNTHESIZE(bool, _startTerrain, StartTerrain);
 
-	static Terrain * create();
+	static Terrain * create(float scaleRate);
 
-	void activateChimneysAt (Player * player);
-	void checkCollision (Player * player);
+	void activateChimneysAt(Player * player);
+	void checkCollision(Player * player);
 
-	void move (float xMove);
-	void reset (void);
-
-
+	void move(float xMove);
+	void reset(void);
+	void setScaleRate(float scaleRate)
+	{
+		this->_scaleRate = scaleRate;
+	}
+	float getScaleRate()
+	{
+		return _scaleRate;
+	}
 };
 
 

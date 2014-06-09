@@ -29,19 +29,19 @@ class GameLayer : public cocos2d::CCLayer
 {
 	Terrain * _terrain;
 	Player * _player;
-    CCLabelBMFont * _scoreDisplay;
-    
-    CCSprite * _intro;
-    CCSprite * _tryAgain;
-    CCSprite * _background;
-    CCSprite * _foreground;
-    CCSprite * _hat;
-    CCSprite * _jam;
-    CCAction * _jamAnimate;
-    CCAction * _jamMove;
-    
-    CCArray * _clouds;
-	CCSpriteBatchNode * _gameBatchNode;
+	CCLabelBMFont * _scoreDisplay;
+
+	Sprite * _intro;
+	Sprite * _tryAgain;
+	Sprite * _background;
+	Sprite * _foreground;
+	Sprite * _hat;
+	Sprite * _jam;
+	Action * _jamAnimate;
+	Action * _jamMove;
+
+	Array * _clouds;
+	SpriteBatchNode * _gameBatchNode;
     CCLabelTTF * _tutorialLabel;
     CCMenu* _mainMenu;
 
@@ -52,8 +52,11 @@ class GameLayer : public cocos2d::CCLayer
     float _score;
 	int _speedIncreaseInterval;
 	float _speedIncreaseTimer;
+	float _scaleRate;
 	void createGameScreen();
 	void resetGame();
+	void checkScaleRate(Size screenSize, Size bgSize);
+
 public:
     ~GameLayer();
     // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
@@ -67,8 +70,12 @@ public:
 
 	void update (float dt);
 
-	virtual void TouchesBegan(CCSet* pTouches, CCEvent* event);
-	virtual void TouchesEnded(CCSet* pTouches, CCEvent* event);
+	virtual void onTouchesBegan(CCSet *pTouches, CCEvent *event);
+	virtual void onTouchesEnded(CCSet *pTouches, CCEvent *event);
+
+	virtual bool onTouchBegan(Touch *touch, Event *unused_event); 
+    virtual void onTouchEnded(Touch *touch, Event *unused_event); 
+
     void showTutorial (CCObject* pSender);
     void startGame (CCObject* pSender);
 };

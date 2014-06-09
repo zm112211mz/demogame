@@ -26,23 +26,24 @@ class GameBlock : public GameSprite {
 	int _tileWidth;
 	int _tileHeight;
 	int _puffIndex;
+	float _scaleRate;
 
-	CCSpriteFrame * _tile1;
-	CCSpriteFrame * _tile2;
-	CCSpriteFrame * _tile3;
-	CCSpriteFrame * _tile4;
+	SpriteFrame * _tile1;
+	SpriteFrame * _tile2;
+	SpriteFrame * _tile3;
+	SpriteFrame * _tile4;
 
-	CCSpriteFrame * _roof1;
-	CCSpriteFrame * _roof2;
+	SpriteFrame * _roof1;
+	SpriteFrame * _roof2;
 
-	CCArray * _wallTiles;
-	CCArray * _roofTiles;
+	Array * _wallTiles;
+	Array * _roofTiles;
 
-	CCAction * _puffSpawn;
-	CCAction * _puffMove;
-	CCAction * _puffFade;
-	CCAction * _puffScale;
-	CCAction * _puffAnimation;
+	Action * _puffSpawn;
+	Action * _puffMove;
+	Action * _puffFade;
+	Action * _puffScale;
+	Action * _puffAnimation;
 
 	void initBlock(void);
 	void createPuff(void);
@@ -52,13 +53,13 @@ public:
 
 	CC_SYNTHESIZE_READONLY(bool, _puffing, Puffing);
 
-	CC_SYNTHESIZE(CCArray *, _chimneys, Chimneys);
+	CC_SYNTHESIZE(Array *, _chimneys, Chimneys);
 
-	GameBlock();
+	GameBlock(float scaleRate);
 	~GameBlock();
 
-	static GameBlock *create();
-	void setupBlock(int width, int height, int type);
+	static GameBlock *create(float scaleRate);
+	void setupBlock(int width, int height, int type, float scaleRate);
 	void setPuffing(bool value);
 	void hidePuffs();
 

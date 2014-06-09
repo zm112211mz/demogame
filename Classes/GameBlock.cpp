@@ -15,7 +15,8 @@ GameBlock::~GameBlock() {
 	CC_SAFE_RELEASE(_puffScale);
 }
 
-GameBlock::GameBlock() {
+GameBlock::GameBlock(float scaleRate) {
+        _scaleRate = scaleRate;
 	_screenSize = CCDirector::sharedDirector()->getWinSize();
 	_tileWidth = _screenSize.width / TILE_W_SIZE;
 	_tileHeight = _screenSize.height / TILE_H_SIZE;
@@ -23,8 +24,10 @@ GameBlock::GameBlock() {
 	this->setVisible(false);
 }
 
-GameBlock* GameBlock::create() {
-	GameBlock *block = new GameBlock();
+GameBlock* GameBlock::create(float scaleRate) {
+	GameBlock *block = new GameBlock(scaleRate);
+	
+
 	if (block && block->initWithSpriteFrameName("blank.png")) {
 		block->autorelease();
 		block->initBlock();
@@ -36,11 +39,14 @@ GameBlock* GameBlock::create() {
 
 void GameBlock::setPuffing(bool value) {
 	_puffing = value;
+	Action * pp = CCRepeat::create(CCSequence::create(CCDelayTime::create(0.5f),
+		CCCallFunc::create(this, callfunc_selector(GameBlock::createPuff)),
+		NULL), TOTAL_PUFFS);
 
 	if (value) {
-		this->runAction((CCAction *)_puffSpawn->copy()->autorelease());
+		this->runAction(pp);
 		
-		CCAction * hide = CCSequence::create(CCDelayTime::create(2.5f),
+		Action * hide = CCSequence::create(CCDelayTime::create(2.5f),
 			CCCallFunc::create(this, callfunc_selector(GameBlock::hidePuffs)),
 			NULL);
 		this->runAction(hide);
@@ -48,14 +54,14 @@ void GameBlock::setPuffing(bool value) {
 	else {
 		_puffIndex = 0;
 		int count = _chimneys->count();
-		CCSprite * chimney;
-		CCSprite * puff;
+		Sprite * chimney;
+		Sprite * puff;
 
 		for (int i = 0; i < count; i++) {
-			chimney = (CCSprite *)_chimneys->objectAtIndex(i);
+			chimney = (Sprite *)_chimneys->objectAtIndex(i);
 
 			for (int j = 0; j < TOTAL_PUFFS; j++) {
-				puff = (CCSprite *)chimney->getChildByTag(j);
+				puff = (Sprite *)chimney->getChildByTag(j);
 				puff->setVisible(false);
 				puff->stopAllActions();
 				
@@ -72,16 +78,17 @@ void GameBlock::hidePuffs() {
 	setPuffing(false);
 }
 
-void GameBlock::setupBlock(int width, int height, int type) {
+void GameBlock::setupBlock(int width, int height, int type, float scaleRate) {
 	this->setPuffing(false);
+	_scaleRate = scaleRate;
 	_type = type;
 
 	_width = width * _tileWidth;
 	_height = height * _tileHeight + _tileHeight * 0.49f;
 	this->setPositionY(_height);
 
-	CCSpriteFrame *wallFrame;
-	CCSpriteFrame *roofFrame = rand() % 10 > 6 ? _roof1 : _roof2;
+	SpriteFrame *wallFrame;
+	SpriteFrame *roofFrame = rand() % 10 > 6 ? _roof1 : _roof2;
 
 	int num_chimneys;
 	float chimneyX[] = { 0, 0, 0, 0, 0 };
@@ -120,15 +127,18 @@ void GameBlock::setupBlock(int width, int height, int type) {
 		num_chimneys = 2;
 		break;
 	}
+	
 
 	int i;
 	GameSprite * chimney;
 	int count;
 	count = _chimneys->count();
 	for (i = 0; i < count; i++) {
+		float chimneyX = (i + 0.7) * _tileWidth; 
 		chimney = (GameSprite *)_chimneys->objectAtIndex(i);
 		if (i < num_chimneys) {
-			chimney->setPosition(ccp(chimneyX[i] * _width, 0));
+			chimney->setPosition(ccp(chimneyX, 0));
+			//chimney->setPosition(ccp(chimneyX[i] * _width, 0));
 			chimney->setVisible(true);
 
 		}
@@ -139,11 +149,11 @@ void GameBlock::setupBlock(int width, int height, int type) {
 
 	this->setVisible(true);
 
-	CCSprite * tile;
+	Sprite * tile;
 
 	count = _roofTiles->count();
 	for (i = 0; i < count; i++) {
-		tile = (CCSprite *)_roofTiles->objectAtIndex(i);
+		tile = (Sprite *)_roofTiles->objectAtIndex(i);
 		if (tile->getPositionX() < _width) {
 			tile->setVisible(true);
 			//显示相应的屋顶
@@ -156,7 +166,7 @@ void GameBlock::setupBlock(int width, int height, int type) {
 
 	count = _wallTiles->count();
 	for (i = 0; i < count; i++) {
-		tile = (CCSprite *)_wallTiles->objectAtIndex(i);
+		tile = (Sprite *)_wallTiles->objectAtIndex(i);
 		if (tile->getPositionX() < _width && tile->getPositionY() > -_height) {
 			tile->setVisible(true);
 			tile->setDisplayFrame(wallFrame);
@@ -173,64 +183,68 @@ void GameBlock::initBlock() {
 	_tile3 = CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName("building_3.png");
 	_tile4 = CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName("building_4.png");
 
-	_roof1 = CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName("roof_1.png");
-	_roof2 = CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName("roof_2.png");
+	_roof1 = SpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName("roof_1.png");
+	_roof2 = SpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName("roof_2.png");
 
 	int i;
-	_wallTiles = CCArray::createWithCapacity(20);
+	_wallTiles = Array::createWithCapacity(20);
 	_wallTiles->retain();
 
-	_roofTiles = CCArray::createWithCapacity(5);
+	_roofTiles = Array::createWithCapacity(5);
 	_roofTiles->retain();
 
-	CCSprite * tile;
+	Sprite * tile;
 
 	for (i = 0; i < 5; i++) {
-		tile = CCSprite::createWithSpriteFrameName("roof_1.png");
+		tile = Sprite::createWithSpriteFrameName("roof_1.png");
 		tile->setAnchorPoint(ccp(0, 1));
 		tile->setPosition(ccp(i * _tileWidth, 0));
 		tile->setVisible(false);
+		tile->setScale(_scaleRate);
 		this->addChild(tile, kMiddleground, kRoofTile);
 		_roofTiles->addObject(tile);
 
 		for (int j = 0; j < 4; j++) {
-			tile = CCSprite::createWithSpriteFrameName("building_1.png");
+			tile = Sprite::createWithSpriteFrameName("building_1.png");
 			tile->setAnchorPoint(ccp(0, 1));
 			tile->setPosition(ccp(i * _tileWidth, -1 * (_tileHeight * 0.47f + j * _tileHeight)));
 			tile->setVisible(false);
+			tile->setScale(_scaleRate);
 			this->addChild(tile, kBackground, kWallTile);
 			_wallTiles->addObject(tile);
 		}
 	}
 
-	_chimneys = CCArray::createWithCapacity(5);
+	_chimneys = Array::createWithCapacity(5);
 	_chimneys->retain();
 
-	CCSprite * chimney;
-	CCSprite * puff;
+	Sprite * chimney;
+	Sprite * puff;
 
 	for (i = 0; i < 5; i++) {
-		chimney = CCSprite::createWithSpriteFrameName("chimney.png");
+		chimney = Sprite::createWithSpriteFrameName("chimney.png");
 		chimney->setVisible(false);
+		chimney->setScale(_scaleRate);
 		this->addChild(chimney, kForeground, kChimney);
 		_chimneys->addObject(chimney);
 
 		for (int j = 0; j < TOTAL_PUFFS; j++) {
-			puff = CCSprite::createWithSpriteFrameName("puff_1.png");
+			puff = Sprite::createWithSpriteFrameName("puff_1.png");
 			puff->setAnchorPoint(ccp(0, -0.5));
 			puff->setVisible(false);
+			puff->setScale(_scaleRate);
 			chimney->addChild(puff, -1, j);
 		}
 	}
 
-	CCAnimation* animation;
-	animation = CCAnimation::create();
-	CCSpriteFrame * frame;
+	Animation* animation;
+	animation = Animation::create();
+	SpriteFrame * frame;
 
 	for (i = 1; i <= 4; i++) {
 		char szName[100] = { 0 };
 		sprintf(szName, "puff_%i.png", i);
-		frame = CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(szName);
+		frame = SpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(szName);
 		animation->addSpriteFrame(frame);
 	}
 
@@ -257,27 +271,47 @@ void GameBlock::initBlock() {
 
 void GameBlock::createPuff() {
 	int count = _chimneys->count();
-	CCSprite *chimney;
-	CCSprite *puff;
+	Sprite *chimney;
+	Sprite *puff;
 
 	for (int i = 0; i < count; i++) {
-		chimney = (CCSprite *)_chimneys->objectAtIndex(i);
+		chimney = (Sprite *)_chimneys->objectAtIndex(i);
 		if (chimney->isVisible()) {
+			Animation* animation;
+			animation = Animation::create();
+			SpriteFrame * frame;
 
-			puff = (CCSprite *)chimney->getChildByTag(_puffIndex);
+			for (i = 1; i <= 4; i++) {
+				char szName[100] = { 0 };
+				sprintf(szName, "puff_%i.png", i);
+				frame = SpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(szName);
+				animation->addSpriteFrame(frame);
+			}
+
+			animation->setDelayPerUnit(0.75f / 4.0f);
+			animation->setRestoreOriginalFrame(false);
+			animation->setLoops(-1);
+
+			Action * puffAnimation = Animate::create(animation);
+			Action * puffMove = CCMoveBy::create(1.0f, ccp(-100, 80));
+			Action * puffScale = CCScaleBy::create(1.5f, 1.5);
+
+			puff = (Sprite *)chimney->getChildByTag(_puffIndex);
 			puff->setVisible(true);
 			puff->stopAllActions();
 			puff->setScale(1.0);
 			puff->setOpacity(255);
 			puff->setPosition(ccp(0, 0));
-			puff->runAction((CCAction *)_puffAnimation->copy()->autorelease());
-			puff->runAction((CCAction *)_puffMove->copy()->autorelease());
-			//puff->runAction((CCAction *) _puffFade->copy()->autorelease());
-			puff->runAction((CCAction *)_puffScale->copy()->autorelease());
+			puff->runAction((Action *)_puffAnimation->clone());
+			puff->runAction((Action *)_puffMove->clone());
+			//puff->runAction((Action *) _puffFade->copy()->autorelease());
+			//puff->runAction(puffScale);
+			puff->runAction((Action *) _puffScale->clone());
 		}
 	}
 
 	_puffIndex++;
 	if (_puffIndex == TOTAL_PUFFS)
 		_puffIndex = 0;
+		
 }

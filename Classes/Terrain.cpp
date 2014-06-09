@@ -42,12 +42,18 @@ Terrain::Terrain()
 {
 }
 
-//创建地形图
-Terrain * Terrain::create() {
+Terrain* Terrain::create(float scaleRate) {
 	Terrain * terrain = new Terrain();
-	//if (terrain && terrain->initWithFile("blank.png")) {
+
+	terrain->setScaleRate(scaleRate);
+	//terrain->setScale(scaleRate);
+	log("this sprite content: %d, %d; the screen: %d, %d", 
+		terrain->getContentSize().width,
+		terrain->getContentSize().height,
+		CCDirector::sharedDirector()->getWinSize().width,
+		CCDirector::sharedDirector()->getWinSize().height);
 	if (terrain && terrain->initWithSpriteFrameName("blank.png")) {
-		terrain->setAnchorPoint(ccp(0,0));
+		terrain->setAnchorPoint(ccp(0, 0));
 		//初始化地形图
 		terrain->initTerrain();
 		terrain->autorelease();
@@ -57,27 +63,24 @@ Terrain * Terrain::create() {
 	return NULL;
 }
 
-void Terrain::initTerrain () {
-
+void Terrain::initTerrain() {
 	_increaseGapInterval = 5000;
 	_increaseGapTimer = 0;
 	//陷阱宽初始为2
 	_gapSize = 2;
 
-	//设计一个街区块pool用数组存起来
-	_blockPool = CCArray::createWithCapacity(20);
+	_blockPool = Array::createWithCapacity(20);
 	_blockPool->retain();
 
 	//init object pools
 	GameBlock * block;
 	for (int i = 0; i < 20; i++) {
-		//初始化街区块
-		block = GameBlock::create();
+		block = GameBlock::create(this->_scaleRate);
 		this->addChild(block);
 		_blockPool->addObject(block);
 	}
 
-	_blocks = CCArray::createWithCapacity(20);
+	_blocks = Array::createWithCapacity(20);
 	_blocks->retain();
 
 	_minTerrainWidth = _screenSize.width * 1.5f;
@@ -89,9 +92,7 @@ void Terrain::initTerrain () {
 	this->addBlocks(0);
 }
 
-
-void Terrain::activateChimneysAt (Player * player) {
-    
+void Terrain::activateChimneysAt(Player *player) {
     int count = _blocks->count();
     
 	GameBlock * block;
@@ -110,10 +111,10 @@ void Terrain::activateChimneysAt (Player * player) {
         }
     }
 }
-void Terrain::checkCollision (Player * player) {
+void Terrain::checkCollision(Player *player) {
 
 	//检查主角状态，死亡则跳出
-	if (player->getState() == kPlayerDying) 
+	if (player->getState() == kPlayerDying)
 		return;
 
 	//街区总块数
@@ -126,7 +127,7 @@ void Terrain::checkCollision (Player * player) {
 	for (i = 0; i < count; i++) {
 
 		block = (GameBlock *) _blocks->objectAtIndex(i);
-		if (block->getType() == kBlockGap) 
+		if (block->getType() == kBlockGap)
 			continue;
 		
 		//if within x, check y (bottom collision)
@@ -136,19 +137,22 @@ void Terrain::checkCollision (Player * player) {
             
 			if (player->bottom() >= block->top() && player->next_bottom() <= block->top()
 				&& player->top() > block->top()) {
-                player->setNextPosition(ccp(player->getNextPosition().x, block->top() + player->getHeight()));
-				player->setVector ( ccp(player->getVector().x, 0) );
+				player->setNextPosition(ccp(player->getNextPosition().x, block->top() + player->getHeight()));
+				player->setVector(ccp(player->getVector().x, 0));
 				// Sets the rotation (angle) of the node in degrees
                 player->setRotation(0.0);
                 inAir = false;
                 break;
+				player->setRotation(0.0);
+				inAir = false;
+				break;
 			}
 		}
 	}
 
 	for (i = 0; i < count; i++) {
 		block = (GameBlock *) _blocks->objectAtIndex(i);
-		if (block->getType() == kBlockGap) 
+		if (block->getType() == kBlockGap)
 			continue;
 
 		//now if within y, check x (side collision)
@@ -156,46 +160,44 @@ void Terrain::checkCollision (Player * player) {
 		if ((player->bottom() < block->top() && player->top() > block->bottom())
 			|| (player->next_bottom() < block->top() && player->next_top() > block->bottom())) {
 
-				if (player->right() >= this->getPositionX() + block->getPositionX() 
-					&& player->left() < this->getPositionX() + block->getPositionX()) {
+			if (player->right() >= this->getPositionX() + block->getPositionX()
+				&& player->left() < this->getPositionX() + block->getPositionX()) {
 
-						player->setPositionX( this->getPositionX() + block->getPositionX() - player->getWidth() * 0.5f );
-						player->setNextPosition(ccp(this->getPositionX() + block->getPositionX() - player->getWidth() * 0.5f, player->getNextPosition().y));
-						player->setVector ( ccp(player->getVector().x * -0.5f, player->getVector().y) );
-						//主角装墙上了
-						if (player->bottom() + player->getHeight() * 0.2f < block->top()) {
-							player->setState(kPlayerDying);
-							return;
-						}
+				player->setPositionX(this->getPositionX() + block->getPositionX() - player->getWidth() * 0.5f);
+				player->setNextPosition(ccp(this->getPositionX() + block->getPositionX() - player->getWidth() * 0.5f, player->getNextPosition().y));
+				player->setVector(ccp(player->getVector().x * -0.5f, player->getVector().y));
+				//主角装墙上了
+				if (player->bottom() + player->getHeight() * 0.2f < block->top()) {
+					player->setState(kPlayerDying);
+					return;
+				}
 
 						break;
 				}
 		}
 	}
 
-	if (inAir) 
+	if (inAir)
 	{
 		//设置下降状态
 		player->setState(kPlayerFalling);
 	}
-	else 
+	else
 	{
 		//设置一直移植状态
 		player->setState(kPlayerMoving);
-		player->setFloating (false);
+		player->setFloating(false);
 	}
 }
 
-
-void Terrain::move (float xMove) {
-
-	if (xMove < 0) 
+void Terrain::move(float xMove) {
+	if (xMove < 0)
 		return;
 
 
 	if (_startTerrain) {
 
-		if (xMove > 0 && _gapSize < 5) 
+		if (xMove > 0 && _gapSize < 5)
 			_increaseGapTimer += xMove;
 
 		if (_increaseGapTimer > _increaseGapInterval) {
@@ -224,17 +226,17 @@ void Terrain::move (float xMove) {
 
 void Terrain::reset() {
 
-	this->setPosition(ccp(0,0));
+	this->setPosition(ccp(0, 0));
 	_startTerrain = false;
 
-	int count  = _blocks->count();
+	int count = _blocks->count();
 	GameBlock * block;
 	int i = 0;
 	int currentWidth = 0;
 	for (i = 0; i < count; i++) {
 		block = (GameBlock *) _blocks->objectAtIndex(i);
 		this->initBlock(block);
-		currentWidth +=  block->getWidth();
+		currentWidth += block->getWidth();
 	}
 
 	while (currentWidth < _minTerrainWidth) {
@@ -245,7 +247,7 @@ void Terrain::reset() {
 		}
 		_blocks->addObject(block);
 		this->initBlock(block);
-		currentWidth +=  block->getWidth();
+		currentWidth += block->getWidth();
 	}
 
 	this->distributeBlocks();
@@ -257,7 +259,7 @@ void Terrain::addBlocks(int currentWidth) {
 
 	GameBlock * block;
 	while (currentWidth < _minTerrainWidth)
-	{	
+	{
 		block = (GameBlock *) _blockPool->objectAtIndex(_blockPoolIndex);
 		_blockPoolIndex++;
 		if (_blockPoolIndex == _blockPool->count()) {
@@ -284,11 +286,11 @@ void Terrain::distributeBlocks() {
 		block = (GameBlock *) _blocks->objectAtIndex(i);
 		if (i != 0) {
 			prev_block = (GameBlock *) _blocks->objectAtIndex(i - 1);
-			block->setPositionX( prev_block->getPositionX() + prev_block->getWidth());
+			block->setPositionX(prev_block->getPositionX() + prev_block->getWidth());
 		}
 		else
 		{
-			block->setPositionX ( 0 ); 
+			block->setPositionX(0);
 		}
 	}
 }
@@ -316,11 +318,11 @@ void Terrain::initBlock(GameBlock * block) {
 			if (gap < 2) 
 				gap = 2;
 
-			//设置陷阱块
-			block->setupBlock (gap, 0, kBlockGap);
+			block->setupBlock(gap, 0, kBlockGap, _scaleRate);
 			_showGap = false;
 
-		} else {
+		}
+		else {
 
 			blockWidth = _blockWidths[_currentWidthIndex];
 
@@ -339,7 +341,8 @@ void Terrain::initBlock(GameBlock * block) {
 					blockHeight = 1;
 				}
 
-			} else {
+			}
+			else {
 				blockHeight = _lastBlockHeight;
 			}
 			_currentHeightIndex++;
@@ -349,7 +352,7 @@ void Terrain::initBlock(GameBlock * block) {
 
 			}
 
-			block->setupBlock (blockWidth, blockHeight, type);
+			block->setupBlock(blockWidth, blockHeight, type, _scaleRate);
 			_lastBlockWidth = blockWidth;
 			_lastBlockHeight = blockHeight;
 
@@ -371,8 +374,6 @@ void Terrain::initBlock(GameBlock * block) {
 	} else {
 		_lastBlockHeight = 2;
 		_lastBlockWidth = rand() % 2 + 2;
-		block->setupBlock (_lastBlockWidth, _lastBlockHeight, type);
+		block->setupBlock(_lastBlockWidth, _lastBlockHeight, type, _scaleRate);
 	}
-
 }
-

@@ -33,22 +33,21 @@ typedef enum
 
 //主角继承于游戏精灵类
 class Player : public GameSprite {
-    
-    CCAction * _rideAnimation;
-    CCAction * _floatAnimation;
+	Action * _rideAnimation;
+	Action * _floatAnimation;
     float _speed;
 	int _floatingTimerMax;
 	float _floatingTimer;
 	int _floatingInterval;
 	bool _hasFloated;
+	float _scaleRate;
 
 	CCSize _screenSize;
 
 	void initPlayer (void);
 
 public:
-
-	Player(void);
+	Player(float scaleRate);
 	~Player(void);
 
 	//定义变量，并且直接定义默认的get/set方法
@@ -58,8 +57,7 @@ public:
 	CC_SYNTHESIZE(bool, _jumping, Jumping);
 	CC_SYNTHESIZE(float, _maxSpeed, MaxSpeed);
 
-	static Player * create (void);
-
+	static Player* create(float scaleRate);
 	virtual void update (float dt);
 
 	void setFloating (bool value);
@@ -89,7 +87,7 @@ public:
 
 	//主角在Y轴上的位置
 	inline int top() {
-		return this->getPositionY() ;
+		return this->getPositionY();
 	}
 
 	//主角在Y轴上的位置【底部有效碰撞】
@@ -109,7 +107,7 @@ public:
 
 	//主角下一个位置的上部
 	inline int next_top() {
-		return _nextPosition.y ;
+		return _nextPosition.y;
 	}
 
 	//主角下一个位置的底部

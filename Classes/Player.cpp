@@ -14,7 +14,7 @@ Player::~Player(){
     CC_SAFE_RELEASE(_floatAnimation);
 }
 
-Player::Player() {
+Player::Player(float scaleRate) {
 	_screenSize = CCDirector::sharedDirector()->getWinSize();
 	_floatingTimerMax = 2;
 	_floatingTimer = 0;
@@ -22,15 +22,16 @@ Player::Player() {
 	_maxSpeed = PLAYER_INITIAL_SPEED;
 	_floating = false;
 	_nextPosition = CCPointZero;
-	_nextPosition.y = _screenSize.height * 0.6f;
+	_nextPosition.y = _screenSize.height * 0.8f;
 	_state = kPlayerMoving;
 	_jumping = false;
 	_hasFloated = false;
+	_scaleRate = scaleRate;
 }
 
-Player * Player::create () {
+Player * Player::create (float scaleRate) {
 
-	Player * player = new Player();
+	Player * player = new Player(scaleRate);
 	if (player && player->initWithSpriteFrameName("player_1.png")) {
 		player->autorelease();
 		player->setSize();
@@ -153,14 +154,18 @@ void Player::initPlayer () {
 	//设置锚点
 	this->setAnchorPoint(ccp(0.5f, 1.0f));
 	this->setPosition(ccp(_screenSize.width * 0.2f, _nextPosition.y));
+	this->setScale(_scaleRate);
+
+	_height = this->getContentSize().height * _scaleRate * 0.95; //去掉sprite下面的白边
+	_width = this->getContentSize().width * _scaleRate;
 
 	//_height = 228;
 	//_width = 180;
-	_height = 50;
-	_width = 50;
-    CCAnimation* animation;
+	//_height = 50;
+	//_width = 50;
+    Animation* animation;
 	//创建一个空白的序列帧动画信息
-    animation = CCAnimation::create();
+    animation = Animation::create();
 
 	//CCSpriteFrame对应的就是帧，将CCSpriteFrame添加到CCAnimation生成动画数据，
 	//用CCAnimation生成CCAnimate（就是最终的动画动作），最后可以用CCSprite执行这个动作。
@@ -188,11 +193,11 @@ void Player::initPlayer () {
 	//CCFiniteTimeAction是所有有限次执行类（或者也可以叫顺序执行类吧）的基类
 	//CCSequence创建一个动作序列
 	//CCEaseInOut创建对应匀速动画的变速动画，参数一为一个匀速动画。参数二为速度
-    CCFiniteTimeAction* easeSwing = CCSequence::create(
+    FiniteTimeAction* easeSwing = CCSequence::create(
            CCEaseInOut::create(CCRotateTo::create(0.8f, -10), 2),
            CCEaseInOut::create(CCRotateTo::create(0.8f, 10), 2),
            NULL);
-    _floatAnimation = CCRepeatForever::create( (CCActionInterval*) easeSwing );
+    _floatAnimation = CCRepeatForever::create( (ActionInterval*) easeSwing );
     _floatAnimation->retain();
     
     this->runAction(_rideAnimation);

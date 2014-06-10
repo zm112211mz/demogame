@@ -82,6 +82,7 @@
 		F98021C81942146100D53890 /* sprite_sheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F98021C01942146100D53890 /* sprite_sheet.plist */; };
 		F98021C91942146100D53890 /* sprite_sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = F98021C11942146100D53890 /* sprite_sheet.png */; };
 		F98021CC1943493200D53890 /* GameBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F98021CA1943493200D53890 /* GameBlock.cpp */; };
+		F99192631945ECB00059CFB3 /* Balk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F99192611945ECB00059CFB3 /* Balk.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -298,6 +299,9 @@
 		F98021C11942146100D53890 /* sprite_sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite_sheet.png; sourceTree = "<group>"; };
 		F98021CA1943493200D53890 /* GameBlock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameBlock.cpp; path = ../Classes/GameBlock.cpp; sourceTree = "<group>"; };
 		F98021CB1943493200D53890 /* GameBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameBlock.h; path = ../Classes/GameBlock.h; sourceTree = "<group>"; };
+		F99192611945ECB00059CFB3 /* Balk.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Balk.cpp; path = ../Classes/Balk.cpp; sourceTree = "<group>"; };
+		F99192621945ECB00059CFB3 /* Balk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Balk.h; path = ../Classes/Balk.h; sourceTree = "<group>"; };
+		F9919266194601AE0059CFB3 /* GameTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameTypes.h; path = ../Classes/GameTypes.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -381,6 +385,9 @@
 				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
 				1AFAF8B516D35DE700DB1158 /* HelloWorldScene.cpp */,
 				1AFAF8B616D35DE700DB1158 /* HelloWorldScene.h */,
+				F99192611945ECB00059CFB3 /* Balk.cpp */,
+				F99192621945ECB00059CFB3 /* Balk.h */,
+				F9919266194601AE0059CFB3 /* GameTypes.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -735,6 +742,7 @@
 				F98021B41942145400D53890 /* GameSprite.cpp in Sources */,
 				F98021B61942145400D53890 /* Terrain.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				F99192631945ECB00059CFB3 /* Balk.cpp in Sources */,
 				F98021B51942145400D53890 /* Player.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,

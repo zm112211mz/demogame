@@ -14,6 +14,8 @@
 #include "cocos2d.h"
 #include "GameBlock.h"
 #include "Player.h"
+#include "GameTypes.h"
+#include "Balk.h"
 
 USING_NS_CC;
 using namespace std;
@@ -29,6 +31,13 @@ class Terrain : public CCSprite {
 	int _lastBlockWidth;
 	int _minTerrainWidth;
 
+	Array *_balkPool;
+	int _balkPoolIndex;
+
+	Array *_balks;
+	int _lastBalkHeight;
+	int _lastBalkWidth;
+
 	bool _showGap;
 	CCSize _screenSize;
 
@@ -37,6 +46,7 @@ class Terrain : public CCSprite {
 	int _currentWidthIndex;
 	int _currentHeightIndex;
 	int _currentTypeIndex;
+	int _currentBalkTypeIndex;
 
 	int _increaseGapInterval;
 	float _increaseGapTimer;
@@ -46,10 +56,13 @@ class Terrain : public CCSprite {
 
 	void initTerrain(void);
 	void addBlocks(int currentWidth);
+	void addBalks(int currentWidth);
 
 	void distributeBlocks();
-	void initBlock(GameBlock * block);
+	void distributeBalks();
 
+	void initBlock(GameBlock * block);
+	void initBalk(Balk * balk);
 	inline float getWidth() {
 		int count = _blocks->count();
 		int width = 0;

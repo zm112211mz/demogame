@@ -1,18 +1,13 @@
-/*
-    文件名：    Terrain.h
-    描　述：    游戏中定义的地形类的实现
-    创建人：    郝萌主 (博客：http://blog.csdn.net/haomengzhu)
-
-    创建日期：   2013.12.05
-*/
 #include "Terrain.h"
 #include <algorithm>
+#include "GameTypes.h"
 
 //随机的模式、宽、高、及类型
 int patterns[] = {1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,3,3,3};
 int widths[] = {2,2,2,2,2,3,3,3,3,3,3,4,4,4,4,4,4};
 int heights[] = {0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,2,2,2,3,3,3,3,3,3,4};
 int types[] = {1,2,3,4,1,3,2,4,3,2,1,4,2,3,1,4,2,3,1,2,3,2,3,4,1,2,4,3,1,3,1,4,2,4,2,1,2,3};
+int balktypes[] = {0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2};
 
 //街区模式
 vector<int> _blockPattern (patterns, patterns + sizeof(patterns) / sizeof(int));
@@ -22,6 +17,8 @@ vector<int> _blockWidths (widths, widths + sizeof(widths) / sizeof(int));
 vector<int> _blockHeights (heights, heights + sizeof(heights) / sizeof(int));
 //街区类型
 vector<int> _blockTypes (types, types + sizeof(types) / sizeof(int));
+//障碍类型
+vector<int> _balkTypes(balktypes, balktypes + sizeof(balktypes) / sizeof(int));
 
 Terrain::~Terrain () {
 

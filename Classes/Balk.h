@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include "cocos2d.h"
+#include "GameTypes.h"
 
 class Balk : public cocos2d::Sprite
 {

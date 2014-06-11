@@ -2,34 +2,31 @@
 #include <algorithm>
 #include "GameTypes.h"
 
-//随机的模式、宽、高、及类型
 int patterns[] = {1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,3,3,3};
 int widths[] = {2,2,2,2,2,3,3,3,3,3,3,4,4,4,4,4,4};
 int heights[] = {0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,2,2,2,3,3,3,3,3,3,4};
 int types[] = {1,2,3,4,1,3,2,4,3,2,1,4,2,3,1,4,2,3,1,2,3,2,3,4,1,2,4,3,1,3,1,4,2,4,2,1,2,3};
 int balktypes[] = {0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2};
 
-//街区模式
 vector<int> _blockPattern (patterns, patterns + sizeof(patterns) / sizeof(int));
-//街区宽度
 vector<int> _blockWidths (widths, widths + sizeof(widths) / sizeof(int));
-//街区高度
 vector<int> _blockHeights (heights, heights + sizeof(heights) / sizeof(int));
-//街区类型
 vector<int> _blockTypes (types, types + sizeof(types) / sizeof(int));
-//障碍类型
 vector<int> _balkTypes(balktypes, balktypes + sizeof(balktypes) / sizeof(int));
 
 Terrain::~Terrain () {
 
 	CC_SAFE_RELEASE(_blockPool);
 	CC_SAFE_RELEASE(_blocks);
+    CC_SAFE_RELEASE(_balkPool);
+    CC_SAFE_RELEASE(_balks);
 }
 
 Terrain::Terrain()
-	:_screenSize(CCDirector::sharedDirector()->getWinSize())
+	:_screenSize(Director::getInstance()->getWinSize())
 	,_startTerrain(false)
 	,_blockPoolIndex(0)
+    ,_balkPoolIndex(0)
 	,_currentPatternCnt(1)
 	,_currentPatternIndex(0)
 	,_currentTypeIndex(0)
@@ -44,14 +41,13 @@ Terrain* Terrain::create(float scaleRate) {
 
 	terrain->setScaleRate(scaleRate);
 	//terrain->setScale(scaleRate);
-	log("this sprite content: %d, %d; the screen: %d, %d", 
+	log("this sprite content: %f, %f; the screen: %f, %f",
 		terrain->getContentSize().width,
 		terrain->getContentSize().height,
-		CCDirector::sharedDirector()->getWinSize().width,
-		CCDirector::sharedDirector()->getWinSize().height);
+		Director::getInstance()->getWinSize().width,
+		Director::getInstance()->getWinSize().height);
 	if (terrain && terrain->initWithSpriteFrameName("blank.png")) {
-		terrain->setAnchorPoint(ccp(0, 0));
-		//初始化地形图
+		terrain->setAnchorPoint(Point(0, 0));
 		terrain->initTerrain();
 		terrain->autorelease();
 		return terrain;
@@ -63,11 +59,13 @@ Terrain* Terrain::create(float scaleRate) {
 void Terrain::initTerrain() {
 	_increaseGapInterval = 5000;
 	_increaseGapTimer = 0;
-	//陷阱宽初始为2
 	_gapSize = 2;
 
-	_blockPool = Array::createWithCapacity(20);
+	_blockPool = __Array::createWithCapacity(20);
 	_blockPool->retain();
+    
+    _balkPool = __Array::createWithCapacity(20);
+    _balkPool->retain();
 
 	//init object pools
 	GameBlock * block;
@@ -76,6 +74,12 @@ void Terrain::initTerrain() {
 		this->addChild(block);
 		_blockPool->addObject(block);
 	}
+    
+    Balk * balk;
+    for (int i = 0; i < 20; i++) {
+        balk = Balk::create();
+        this->addChild(balk);
+    }
 
 	_blocks = Array::createWithCapacity(20);
 	_blocks->retain();
@@ -257,7 +261,7 @@ void Terrain::addBlocks(int currentWidth) {
 	GameBlock * block;
 	while (currentWidth < _minTerrainWidth)
 	{
-		block = (GameBlock *) _blockPool->objectAtIndex(_blockPoolIndex);
+		block = (GameBlock *) _blockPool->getObjectAtIndex(_blockPoolIndex);
 		_blockPoolIndex++;
 		if (_blockPoolIndex == _blockPool->count()) {
 			_blockPoolIndex = 0;
@@ -271,7 +275,6 @@ void Terrain::addBlocks(int currentWidth) {
 	this->distributeBlocks();
 }
 
-//分配街区块
 void Terrain::distributeBlocks() {
 	int count = _blocks->count();
 
@@ -280,9 +283,9 @@ void Terrain::distributeBlocks() {
 	int i;
 
 	for (i = 0; i < count; i++) {
-		block = (GameBlock *) _blocks->objectAtIndex(i);
+		block = (GameBlock *) _blocks->getObjectAtIndex(i);
 		if (i != 0) {
-			prev_block = (GameBlock *) _blocks->objectAtIndex(i - 1);
+			prev_block = (GameBlock *) _blocks->getObjectAtIndex(i - 1);
 			block->setPositionX(prev_block->getPositionX() + prev_block->getWidth());
 		}
 		else

@@ -1,10 +1,3 @@
-/*
-    文件名：    Terrain.h
-    描　述：    游戏中定义的地形类
-    创建人：    郝萌主 (博客：http://blog.csdn.net/haomengzhu)
-
-    创建日期：   2013.12.05
-*/
 #ifndef __TERRAIN_H__
 #define __TERRAIN_H__
 
@@ -20,26 +13,25 @@
 USING_NS_CC;
 using namespace std;
 
-//地形类
-class Terrain : public CCSprite {
+class Terrain : public Sprite {
 
-	Array *_blockPool;
+	__Array *_blockPool;
 	int _blockPoolIndex;
 
-	Array *_blocks;
+	__Array *_blocks;
 	int _lastBlockHeight;
 	int _lastBlockWidth;
 	int _minTerrainWidth;
 
-	Array *_balkPool;
+	__Array *_balkPool;
 	int _balkPoolIndex;
 
-	Array *_balks;
+	__Array *_balks;
 	int _lastBalkHeight;
 	int _lastBalkWidth;
 
 	bool _showGap;
-	CCSize _screenSize;
+    Size _screenSize;
 
 	int _currentPatternIndex;
 	int _currentPatternCnt;
@@ -68,7 +60,7 @@ class Terrain : public CCSprite {
 		int width = 0;
 		GameBlock * block;
 		for (int i = 0; i < count; i++) {
-			block = (GameBlock *) _blocks->objectAtIndex(i);
+			block = (GameBlock *) _blocks->getObjectAtIndex(i);
 			width += block->getWidth();
 		}
 		return width;

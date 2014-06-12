@@ -83,6 +83,8 @@
 		F98021C91942146100D53890 /* sprite_sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = F98021C11942146100D53890 /* sprite_sheet.png */; };
 		F98021CC1943493200D53890 /* GameBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F98021CA1943493200D53890 /* GameBlock.cpp */; };
 		F99192631945ECB00059CFB3 /* Balk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F99192611945ECB00059CFB3 /* Balk.cpp */; };
+		F991926F1947591A0059CFB3 /* balk_fire.png in Resources */ = {isa = PBXBuildFile; fileRef = F991926E194759190059CFB3 /* balk_fire.png */; };
+		F99192741948A9580059CFB3 /* balk_ballnet.png in Resources */ = {isa = PBXBuildFile; fileRef = F99192731948A9580059CFB3 /* balk_ballnet.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -302,6 +304,8 @@
 		F99192611945ECB00059CFB3 /* Balk.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Balk.cpp; path = ../Classes/Balk.cpp; sourceTree = "<group>"; };
 		F99192621945ECB00059CFB3 /* Balk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Balk.h; path = ../Classes/Balk.h; sourceTree = "<group>"; };
 		F9919266194601AE0059CFB3 /* GameTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameTypes.h; path = ../Classes/GameTypes.h; sourceTree = "<group>"; };
+		F991926E194759190059CFB3 /* balk_fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = balk_fire.png; path = Balk/balk_fire.png; sourceTree = "<group>"; };
+		F99192731948A9580059CFB3 /* balk_ballnet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = balk_ballnet.png; path = Balk/balk_ballnet.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -503,6 +507,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F9919270194759210059CFB3 /* Balk */,
 				F98021B91942146100D53890 /* bg.png */,
 				F98021BA1942146100D53890 /* blank.png */,
 				F98021BB1942146100D53890 /* font.fnt */,
@@ -525,6 +530,15 @@
 				F98021BF1942146100D53890 /* Marker Felt.ttf */,
 			);
 			path = fonts;
+			sourceTree = "<group>";
+		};
+		F9919270194759210059CFB3 /* Balk */ = {
+			isa = PBXGroup;
+			children = (
+				F99192731948A9580059CFB3 /* balk_ballnet.png */,
+				F991926E194759190059CFB3 /* balk_fire.png */,
+			);
+			name = Balk;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -702,6 +716,7 @@
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				F98021C71942146100D53890 /* Marker Felt.ttf in Resources */,
+				F99192741948A9580059CFB3 /* balk_ballnet.png in Resources */,
 				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
 				F98021C51942146100D53890 /* font.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
@@ -714,6 +729,7 @@
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				F98021C81942146100D53890 /* sprite_sheet.plist in Resources */,
+				F991926F1947591A0059CFB3 /* balk_fire.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				F98021C61942146100D53890 /* arial.ttf in Resources */,

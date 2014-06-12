@@ -20,6 +20,9 @@ public:
     Balk();
     ~Balk();
     
+    static Balk* create();
+    static Balk* createWithType(BalkType balkType);
+    
     bool init();
     bool initWithType(BalkType balkType);
     
@@ -29,7 +32,6 @@ public:
     // play the animation when player passes the Balk
     void playPassAnimation(PlayerType playerType);
     
-    CREATE_FUNC(Balk);
     CC_SYNTHESIZE_READONLY(BalkType, m_type, Type);
     
 protected:

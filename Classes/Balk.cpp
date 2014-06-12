@@ -18,6 +18,30 @@ Balk::~Balk()
     
 }
 
+Balk* Balk::create()
+{
+    Balk *balk = new Balk();
+    if (balk && balk->init())
+    {
+        balk->autorelease();
+        return balk;
+    }
+    CC_SAFE_DELETE(balk);
+    return nullptr;
+}
+
+Balk* Balk::createWithType(BalkType balkType)
+{
+    Balk *balk = new Balk();
+    if (balk && balk->initWithType(balkType))
+    {
+        balk->autorelease();
+        return balk;
+    }
+    CC_SAFE_DELETE(balk);
+    return nullptr;
+}
+
 bool Balk::init()
 {
     if (!cocos2d::Sprite::init())
@@ -29,20 +53,27 @@ bool Balk::init()
 
 bool Balk::initWithType(BalkType type)
 {
-    if (!this->init())
-    {
-        return false;
-    }
     m_type = type;
     
     // load image for different Balk type
     switch (m_type)
     {
         case BALK_FIRE:
+            if (!cocos2d::Sprite::initWithFile("balk_fire.png"))
+            {
+                return false;
+            }
+            break;
         case BALK_ROCK:
         case BALK_BIG_BALLNET:
         case BALK_BIG_GLASS:
+            break;
         case BALK_BALLNET:
+            if (!cocos2d::Sprite::initWithFile("balk_ballnet.png"))
+            {
+                return false;
+            }
+            break;
         case BALK_GLASS:
         case BALK_BIRD:
         case BALK_BAFFLE:

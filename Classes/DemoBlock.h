@@ -15,7 +15,7 @@ public:
 	DemoBlock(int width, int height, float tileWidth, float tileHeight);
 	~DemoBlock(void);
 	bool addTile(int x, int y, Sprite * tile);
-	bool addTiles(Vector<Sprite *> tilesArray);
+	bool addTiles(const Vector<Sprite *>& tilesArray);
 	static DemoBlock *create(int width, int height, float tileWidth, float tileHeight);
 	
 	

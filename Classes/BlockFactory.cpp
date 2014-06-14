@@ -12,7 +12,7 @@ BlockFactory::~BlockFactory(void)
 {
 }
 
-DemoBlock * BlockFactory::getBlock(int width, int height, blockType type)
+DemoBlock * BlockFactory::getBlock(int width, int height, BlockType type)
 {
 	if(bf == nullptr)
 	{
@@ -27,13 +27,13 @@ void BlockFactory::init()
 	_tileSample = Sprite::createWithSpriteFrameName("building_1.png");
 	_roofSample = Sprite::createWithSpriteFrameName("roof_1.png");
 
-	_tile1 = CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName("building_1.png");
-	_tile2 = CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName("building_2.png");
-	_tile3 = CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName("building_3.png");
-	_tile4 = CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName("building_4.png");
+	_tile1 = SpriteFrameCache::getInstance()->getSpriteFrameByName("building_1.png");
+	_tile2 = SpriteFrameCache::getInstance()->getSpriteFrameByName("building_2.png");
+	_tile3 = SpriteFrameCache::getInstance()->getSpriteFrameByName("building_3.png");
+	_tile4 = SpriteFrameCache::getInstance()->getSpriteFrameByName("building_4.png");
 
-	_roof1 = SpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName("roof_1.png");
-	_roof2 = SpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName("roof_2.png");
+	_roof1 = SpriteFrameCache::getInstance()->getSpriteFrameByName("roof_1.png");
+	_roof2 = SpriteFrameCache::getInstance()->getSpriteFrameByName("roof_2.png");
 
 	_tileWidth = _tileSample->getContentSize().width;
 	_tileHeight = _tileSample->getContentSize().height;
@@ -42,7 +42,7 @@ void BlockFactory::init()
 	_roofHeight = _roofSample->getContentSize().height;
 }
 
-DemoBlock *BlockFactory::generateBlock(int width, int height, blockType type)
+DemoBlock *BlockFactory::generateBlock(int width, int height, BlockType type)
 {
 	DemoBlock *db = DemoBlock::create(width , height, _tileWidth, _tileHeight);
 	if(db == nullptr)

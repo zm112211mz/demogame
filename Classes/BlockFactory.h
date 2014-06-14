@@ -1,15 +1,8 @@
 #pragma once
 
-#include "GameBlock.h"
+#include "GameTypes.h"
 #include "DemoBlock.h"
 
-enum blockType{
-	demoBlockGap,
-	demoBlock1,
-	demoBlock2,
-	demoBlock3,
-	demoBlock4
-};
 
 class BlockFactory
 {
@@ -30,15 +23,15 @@ class BlockFactory
 	int _roofWidth;
 	int _roofHeight;
 
-	Array * _wallTiles;
-	Array * _roofTiles;
+	Vector<Sprite *> _wallTiles;
+	Vector<Sprite *> _roofTiles;
 
 	void init();
-	DemoBlock *generateBlock(int width, int height, blockType type);
+	DemoBlock *generateBlock(int width, int height, BlockType type);
 public:
 	BlockFactory(void);
 	~BlockFactory(void);
 
-	static DemoBlock * getBlock(int width, int height, blockType type);
+	static DemoBlock * getBlock(int width, int height, BlockType type);
 };
 

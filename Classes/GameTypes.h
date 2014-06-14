@@ -16,6 +16,13 @@ enum PlayerType
     PLAYER_ICE,
 };
 
+enum BlockType{
+	demoBlockGap,
+	demoBlock1,
+	demoBlock2,
+	demoBlock3,
+	demoBlock4
+};
 
 enum BalkType
 {

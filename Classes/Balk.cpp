@@ -8,9 +8,14 @@
 
 #include "Balk.h"
 
+bool Balk::ms_isSpriteFramesInitialized = false;
+
 Balk::Balk():m_type(BALK_NONE)
 {
-
+    if (!ms_isSpriteFramesInitialized)
+    {
+        ms_isSpriteFramesInitialized = initSpriteFrames();
+    }
 }
 
 Balk::~Balk()
@@ -32,13 +37,20 @@ Balk* Balk::create()
 
 Balk* Balk::createWithType(BalkType balkType)
 {
+    
     Balk *balk = new Balk();
     if (balk && balk->initWithType(balkType))
     {
         balk->autorelease();
+        
+        CCLOGINFO("Balk: create Balk with BalkType %d succeeded", balkType);
+        
         return balk;
     }
     CC_SAFE_DELETE(balk);
+    
+    CCLOGERROR("Balk: create Balk with BalkType %d failed", balkType);
+    
     return nullptr;
 }
 
@@ -51,37 +63,21 @@ bool Balk::init()
     return true;
 }
 
-bool Balk::initWithType(BalkType type)
+bool Balk::initWithType(BalkType balkType)
 {
-    m_type = type;
+    cocos2d::SpriteFrame *spriteFrame = ms_spriteFrames.at(balkType);
     
-    // load image for different Balk type
-    switch (m_type)
+    if (cocos2d::Sprite::initWithSpriteFrame(spriteFrame))
     {
-        case BALK_FIRE:
-            if (!cocos2d::Sprite::initWithFile("balk_fire.png"))
-            {
-                return false;
-            }
-            break;
-        case BALK_ROCK:
-        case BALK_BIG_BALLNET:
-        case BALK_BIG_GLASS:
-            break;
-        case BALK_BALLNET:
-            if (!cocos2d::Sprite::initWithFile("balk_ballnet.png"))
-            {
-                return false;
-            }
-            break;
-        case BALK_GLASS:
-        case BALK_BIRD:
-        case BALK_BAFFLE:
-            
-        default:
-            break;
+        CCLOGINFO("Balk: init Balk with BalkType %d succeeded", balkType);
+        m_type = balkType;
+        return true;
     }
-    return true;
+    else
+    {
+        CCLOGERROR("Balk: init Balk with BalkType %d failed", balkType);
+        return false;
+    }
 }
 
 float Balk::getWidth()
@@ -94,7 +90,7 @@ float Balk::getHeight()
     return cocos2d::Sprite::getContentSize().height;
 }
 
-bool Balk::allowPass(PlayerType playerType)
+bool Balk::isPassAllowed(PlayerType playerType)
 {
     bool allow = false;
     
@@ -173,4 +169,18 @@ bool Balk::allowPass(PlayerType playerType)
 void Balk::playPassAnimation(PlayerType playerType)
 {
     
+}
+
+bool Balk::initSpriteFrames()
+{
+    cocos2d::SpriteFrame *spriteFrame = NULL;
+    cocos2d::SpriteFrameCache *spriteFrameCache = cocos2d::SpriteFrameCache::getInstance();
+    
+    spriteFrame = spriteFrameCache->getSpriteFrameByName("balk_fire.png");
+    ms_spriteFrames.insert(BALK_FIRE, spriteFrame);
+    
+    spriteFrame = spriteFrameCache->getSpriteFrameByName("balk_ballnet.png");
+    ms_spriteFrames.insert(BALK_BALLNET, spriteFrame);
+    
+    return true;
 }

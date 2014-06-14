@@ -15,7 +15,7 @@ DemoBlock::DemoBlock(int width, int height, float tileWidth, float tileHeight)
 	this->setContentSize(contentSize);
 	//_tiles = Array::createWithCapacity(width * height);
 
-	this->setAnchorPoint(ccp(0,0));
+	this->setAnchorPoint(Point(0,0));
 	this->setPosition(0,0);
 }
 
@@ -33,7 +33,7 @@ bool DemoBlock::addTile(int x, int y, Sprite * tile)
 	tile->setContentSize(contentSize);
 	tile->setPosition(x * (_tileWidth) , y * (_tileHeight));
 	log("content: %f, %f, position: %f, %f", contentSize.width, contentSize.height, tile->getPosition().x, tile->getPosition().y);
-	tile->setAnchorPoint(ccp(0, 0));
+	tile->setAnchorPoint(Point(0, 0));
 	this->addChild(tile);
 	return true;
 }

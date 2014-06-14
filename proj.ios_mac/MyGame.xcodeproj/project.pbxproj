@@ -85,6 +85,8 @@
 		F99192631945ECB00059CFB3 /* Balk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F99192611945ECB00059CFB3 /* Balk.cpp */; };
 		F991926F1947591A0059CFB3 /* balk_fire.png in Resources */ = {isa = PBXBuildFile; fileRef = F991926E194759190059CFB3 /* balk_fire.png */; };
 		F99192741948A9580059CFB3 /* balk_ballnet.png in Resources */ = {isa = PBXBuildFile; fileRef = F99192731948A9580059CFB3 /* balk_ballnet.png */; };
+		F9919279194C54AB0059CFB3 /* BlockFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9919275194C54AB0059CFB3 /* BlockFactory.cpp */; };
+		F991927A194C54AB0059CFB3 /* DemoBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9919277194C54AB0059CFB3 /* DemoBlock.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -306,6 +308,10 @@
 		F9919266194601AE0059CFB3 /* GameTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameTypes.h; path = ../Classes/GameTypes.h; sourceTree = "<group>"; };
 		F991926E194759190059CFB3 /* balk_fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = balk_fire.png; path = Balk/balk_fire.png; sourceTree = "<group>"; };
 		F99192731948A9580059CFB3 /* balk_ballnet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = balk_ballnet.png; path = Balk/balk_ballnet.png; sourceTree = "<group>"; };
+		F9919275194C54AB0059CFB3 /* BlockFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BlockFactory.cpp; path = ../Classes/BlockFactory.cpp; sourceTree = "<group>"; };
+		F9919276194C54AB0059CFB3 /* BlockFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlockFactory.h; path = ../Classes/BlockFactory.h; sourceTree = "<group>"; };
+		F9919277194C54AB0059CFB3 /* DemoBlock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DemoBlock.cpp; path = ../Classes/DemoBlock.cpp; sourceTree = "<group>"; };
+		F9919278194C54AB0059CFB3 /* DemoBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DemoBlock.h; path = ../Classes/DemoBlock.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -375,6 +381,10 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F9919275194C54AB0059CFB3 /* BlockFactory.cpp */,
+				F9919276194C54AB0059CFB3 /* BlockFactory.h */,
+				F9919277194C54AB0059CFB3 /* DemoBlock.cpp */,
+				F9919278194C54AB0059CFB3 /* DemoBlock.h */,
 				F98021CA1943493200D53890 /* GameBlock.cpp */,
 				F98021CB1943493200D53890 /* GameBlock.h */,
 				F98021AA1942145400D53890 /* GameLayer.cpp */,
@@ -755,6 +765,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9919279194C54AB0059CFB3 /* BlockFactory.cpp in Sources */,
+				F991927A194C54AB0059CFB3 /* DemoBlock.cpp in Sources */,
 				F98021B41942145400D53890 /* GameSprite.cpp in Sources */,
 				F98021B61942145400D53890 /* Terrain.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,

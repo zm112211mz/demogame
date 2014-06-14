@@ -17,20 +17,19 @@
 class Balk : public cocos2d::Sprite
 {
 public:
-    Balk();
     ~Balk();
     
-    static Balk* create();
+    static Balk* create(void);
     static Balk* createWithType(BalkType balkType);
     
-    bool init();
+    bool init(void);
     bool initWithType(BalkType balkType);
     
-    float getWidth();
-    float getHeight();
+    float getWidth(void);
+    float getHeight(void);
     
     // if the player can pass when player meets the Balk
-    bool allowPass(PlayerType playerType);
+    bool isPassAllowed(PlayerType playerType);
     
     // play the animation when player passes the Balk
     void playPassAnimation(PlayerType playerType);
@@ -38,6 +37,17 @@ public:
     CC_SYNTHESIZE_READONLY(BalkType, m_type, Type);
     
 protected:
+    Balk();
+    
+    // init all the SpriteFrames to accelerate the creating of Sprites,
+    // called in the first constructor of Balk
+    static bool initSpriteFrames(void);
+    
+    // if the SpriteFrames are initilized
+    static bool ms_isSpriteFramesInitialized;
+    
+    // all the SpriteFrames
+    static cocos2d::Map<BalkType, cocos2d::SpriteFrame *> ms_spriteFrames;
     
 };
 

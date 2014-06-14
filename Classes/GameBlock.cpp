@@ -16,7 +16,7 @@ GameBlock::~GameBlock() {
 }
 
 GameBlock::GameBlock(float scaleRate) {
-        _scaleRate = scaleRate;
+    _scaleRate = scaleRate;
 	_screenSize = CCDirector::sharedDirector()->getWinSize();
 	_tileWidth = _screenSize.width / TILE_W_SIZE;
 	_tileHeight = _screenSize.height / TILE_H_SIZE;

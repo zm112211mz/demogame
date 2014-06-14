@@ -4,6 +4,7 @@ static BlockFactory *bf = nullptr;
 
 BlockFactory::BlockFactory(void)
 {
+	init();
 }
 
 
@@ -43,17 +44,21 @@ void BlockFactory::init()
 
 DemoBlock *BlockFactory::generateBlock(int width, int height, blockType type)
 {
-	DemoBlock *db = new DemoBlock(width , height, _tileWidth, _tileHeight);
+	DemoBlock *db = DemoBlock::create(width , height, _tileWidth, _tileHeight);
+	if(db == nullptr)
+	{
+		return NULL;
+	}
 
 	for(int x = 0; x < width; x++)
 	{
 		for(int y = 0; y < height; y++)
 		{
-			//Sprite *sprite = Sprite::createWithSpriteFrame(_tile1);
-			Sprite *sprite = Sprite::create("CloseNormal.png");
+			Sprite *sprite = Sprite::createWithSpriteFrame(_tile1);
+			//Sprite *sprite = Sprite::create("CloseNormal.png");
 			db->addTile(x, y, sprite);
 		}
 	}
 
-	return NULL;
+	return db;
 }

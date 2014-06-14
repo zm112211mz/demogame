@@ -21,7 +21,7 @@ enum {
 };
 
 class GameBlock : public GameSprite {
-	CCSize _screenSize;
+	Size _screenSize;
 
 	int _tileWidth;
 	int _tileHeight;

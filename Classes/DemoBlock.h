@@ -15,6 +15,7 @@ public:
 	~DemoBlock(void);
 	bool addTile(int x, int y, Sprite * tile);
 	bool addTiles(Array * tilesArray);
+	static DemoBlock *create(int width, int height, float tileWidth, float tileHeight);
 	
 	
 };

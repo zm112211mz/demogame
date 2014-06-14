@@ -8,8 +8,10 @@ DemoBlock::DemoBlock(int width, int height, float tileWidth, float tileHeight)
 	_tileWidth = tileWidth;
 	_tileHeight = tileHeight;
 	Size contentSize;
-	contentSize.width = width * tileWidth;
-	contentSize.height = height * tileHeight;
+	//contentSize.width = width * tileWidth;
+	//contentSize.height = height * tileHeight;
+	contentSize.width = tileWidth;
+	contentSize.height = tileHeight;
 	this->setContentSize(contentSize);
 	//_tiles = Array::createWithCapacity(width * height);
 
@@ -29,8 +31,20 @@ bool DemoBlock::addTile(int x, int y, Sprite * tile)
 	contentSize.width = _tileWidth;
 	contentSize.height = _tileHeight;
 	tile->setContentSize(contentSize);
-	tile->setPosition(x * _tileWidth, y * _tileHeight);
+	tile->setPosition(x * (_tileWidth) , y * (_tileHeight));
+	log("content: %f, %f, position: %f, %f", contentSize.width, contentSize.height, tile->getPosition().x, tile->getPosition().y);
 	tile->setAnchorPoint(ccp(0, 0));
 	this->addChild(tile);
 	return true;
+}
+
+DemoBlock * DemoBlock::create(int width, int height, float tileWidth, float tileHeight)
+{
+	DemoBlock *db = new DemoBlock(width, height, tileWidth, tileHeight);
+	if(db && db->init())
+	{
+		db->autorelease();
+		return db;
+	}
+	return nullptr;
 }

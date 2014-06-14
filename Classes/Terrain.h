@@ -30,7 +30,7 @@ class Terrain : public CCSprite {
 	int _minTerrainWidth;
 
 	bool _showGap;
-	CCSize _screenSize;
+	Size _screenSize;
 
 	int _currentPatternIndex;
 	int _currentPatternCnt;

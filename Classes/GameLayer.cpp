@@ -14,13 +14,13 @@ GameLayer::~GameLayer() {
     CC_SAFE_RELEASE(_jamMove);
     CC_SAFE_RELEASE(_jamAnimate);
 }
-CCScene* GameLayer::scene()
+Scene* GameLayer::scene()
 {
-    CCScene * scene = NULL;
+    Scene * scene = NULL;
     do 
     {
         // 'scene' is an autorelease object
-        scene = CCScene::create();
+        scene = Scene::create();
         CC_BREAK_IF(! scene);
 
         // 'layer' is an autorelease object
@@ -177,8 +177,8 @@ void GameLayer::update(float dt) {
         for (int i = 0; i < count; i++) {
             cloud = (Sprite *) _clouds->objectAtIndex(i);
             cloud->setPositionX(cloud->getPositionX() - _player->getVector().x * 0.15f);
-            if (cloud->getPositionX() + cloud->boundingBox().size.width * 0.5f < 0 )
-                cloud->setPositionX(_screenSize.width + cloud->boundingBox().size.width * 0.5f);
+            if (cloud->getPositionX() + cloud->getBoundingBox().size.width * 0.5f < 0 )
+                cloud->setPositionX(_screenSize.width + cloud->getBoundingBox().size.width * 0.5f);
         }
     }
     
@@ -239,7 +239,7 @@ void GameLayer::onTouchesBegan(CCSet* pTouches, CCEvent* event) {
                 break;
             case kGameOver:
                 
-                if (_tryAgain->boundingBox().containsPoint(tap)) {
+                if (_tryAgain->getBoundingBox().containsPoint(tap)) {
                     _hat->setVisible(false);
                     _hat->stopAllActions();
                     _tryAgain->setVisible(false);
@@ -304,7 +304,7 @@ bool GameLayer::onTouchBegan(Touch *touch, Event *unused_event) {
                 break;
             case kGameOver:
                 
-                if (_tryAgain->boundingBox().containsPoint(tap)) {
+                if (_tryAgain->getBoundingBox().containsPoint(tap)) {
                     _hat->setVisible(false);
                     _hat->stopAllActions();
                     _tryAgain->setVisible(false);
@@ -517,7 +517,7 @@ void GameLayer::createGameScreen () {
     menuItemOn = Sprite::createWithSpriteFrameName("btn_new_on.png");
     menuItemOff = Sprite::createWithSpriteFrameName("btn_new_off.png");
     //New Game ²Ëµ¥
-    CCMenuItemSprite * starGametItem = CCMenuItemSprite::create(
+    MenuItemSprite * starGametItem = MenuItemSprite::create(
                                                                 menuItemOff,
                                                                 menuItemOn,
                                                                 (cocos2d::Ref*)this,
@@ -527,7 +527,7 @@ void GameLayer::createGameScreen () {
     menuItemOn = Sprite::createWithSpriteFrameName("btn_howto_on.png");
     menuItemOff = Sprite::createWithSpriteFrameName("btn_howto_off.png");
     //How to Play ²Ëµ¥
-    CCMenuItemSprite * howToItem = CCMenuItemSprite::create(
+    MenuItemSprite * howToItem = MenuItemSprite::create(
                                                             menuItemOff,
                                                             menuItemOn,
                                                             (cocos2d::Ref*)this,

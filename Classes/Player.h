@@ -42,7 +42,7 @@ class Player : public GameSprite {
 	bool _hasFloated;
 	float _scaleRate;
 
-	CCSize _screenSize;
+	Size _screenSize;
 
 	void initPlayer (void);
 

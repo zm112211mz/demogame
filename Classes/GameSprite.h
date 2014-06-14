@@ -28,7 +28,7 @@ enum {
 
 class GameSprite : public Sprite {
 protected:
-	CCSize _screenSize;
+	Size _screenSize;
 
 public:
 

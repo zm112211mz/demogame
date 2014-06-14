@@ -45,7 +45,7 @@ class GameLayer : public cocos2d::CCLayer
     CCLabelTTF * _tutorialLabel;
     CCMenu* _mainMenu;
 
-	CCSize _screenSize;
+	Size _screenSize;
 
     GameState _state;
 	bool _running;
@@ -63,7 +63,7 @@ public:
     virtual bool init();  
 
     // there's no 'id' in cpp, so we recommand to return the exactly class pointer
-    static cocos2d::CCScene* scene();
+    static cocos2d::Scene* scene();
 
     // implement the "static node()" method manually
     CREATE_FUNC(GameLayer);

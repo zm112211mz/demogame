@@ -1,4 +1,5 @@
 #include "HelloWorldScene.h"
+#include "BlockFactory.h"
 
 USING_NS_CC;
 
@@ -71,6 +72,13 @@ bool HelloWorld::init()
 
     // add the sprite as a child to this layer
     this->addChild(sprite, 0);
+
+	//SpriteFrameCache（精灵帧缓存）主要用来存放SpriteFrame，它没有提供特别的属性，而是提供一系列用于管理SpriteFrame的方法
+    SpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("sprite_sheet.plist","sprite_sheet.png");
+
+	DemoBlock *db = BlockFactory::getBlock(4, 4, demoBlockGap);
+	db->setScale(3);
+	this->addChild(db);
     
     return true;
 }

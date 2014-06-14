@@ -84,6 +84,16 @@ bool Balk::initWithType(BalkType type)
     return true;
 }
 
+float Balk::getWidth()
+{
+    return cocos2d::Sprite::getContentSize().width;
+}
+
+float Balk::getHeight()
+{
+    return cocos2d::Sprite::getContentSize().height;
+}
+
 bool Balk::allowPass(PlayerType playerType)
 {
     bool allow = false;

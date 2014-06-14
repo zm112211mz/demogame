@@ -26,6 +26,9 @@ public:
     bool init();
     bool initWithType(BalkType balkType);
     
+    float getWidth();
+    float getHeight();
+    
     // if the player can pass when player meets the Balk
     bool allowPass(PlayerType playerType);
     

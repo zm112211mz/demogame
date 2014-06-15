@@ -59,10 +59,10 @@ protected:
     static bool ms_isSpriteFramesInitialized;
     
     // all the SpriteFrames
-    //static cocos2d::Map<int, cocos2d::SpriteFrame *> ms_spriteFrames;
+    static cocos2d::Map<int, cocos2d::SpriteFrame *> ms_spriteFrames;
     
     // all the AnimationFrames
-    //static cocos2d::Map<int, cocos2d::Animation *> ms_animations;
+    static cocos2d::Map<int, cocos2d::Animation *> ms_animations;
 };
 
 #endif /* defined(__MyGame__Drip__) */

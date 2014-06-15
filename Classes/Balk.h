@@ -45,8 +45,11 @@ protected:
     // if the SpriteFrames are initilized
     static bool ms_isSpriteFramesInitialized;
     
-    // all the SpriteFrames
-    //static cocos2d::Map<int, cocos2d::SpriteFrame *> ms_spriteFrames;
+    // the SpriteFrames used to initilize the Sprites
+    static cocos2d::Map<int, cocos2d::SpriteFrame *> ms_spriteFrames;
+    
+    // all the animates
+    static cocos2d::Map<int, cocos2d::Animate *> ms_animates;
     
 };
 

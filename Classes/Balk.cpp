@@ -10,6 +10,10 @@
 
 bool Balk::ms_isSpriteFramesInitialized = false;
 
+cocos2d::Map<int, cocos2d::SpriteFrame *> Balk::ms_spriteFrames;
+
+cocos2d::Map<int, cocos2d::Animate *> Balk::ms_animates;
+
 Balk::Balk():m_type(BALK_NONE)
 {
     if (!ms_isSpriteFramesInitialized)
@@ -65,7 +69,7 @@ bool Balk::init()
     if (cocos2d::Sprite::init())
     {
         CCLOGINFO("Balk: init Balk succeeded");
-        return false;
+        return true;
     }
     else
     {
@@ -76,9 +80,8 @@ bool Balk::init()
 
 bool Balk::initWithType(BalkType balkType)
 {
-    //cocos2d::SpriteFrame *spriteFrame = ms_spriteFrames.at(1);
-    return true;
-    /*
+    cocos2d::SpriteFrame *spriteFrame = ms_spriteFrames.at(balkType);
+    
     if (cocos2d::Sprite::initWithSpriteFrame(spriteFrame))
     {
         CCLOGINFO("Balk: init Balk with BalkType %d succeeded", balkType);
@@ -90,7 +93,7 @@ bool Balk::initWithType(BalkType balkType)
         CCLOGERROR("Balk: init Balk with BalkType %d failed", balkType);
         return false;
     }
-    */
+    
 }
 
 float Balk::getWidth()
@@ -187,13 +190,17 @@ void Balk::playPassAnimation(DripModality dripModality)
 bool Balk::initSpriteFrames()
 {
     cocos2d::SpriteFrame *spriteFrame = nullptr;
-    cocos2d::SpriteFrameCache *spriteFrameCache = cocos2d::SpriteFrameCache::getInstance();
+    //cocos2d::SpriteFrameCache *spriteFrameCache = cocos2d::SpriteFrameCache::getInstance();
+
+    //spriteFrame = spriteFrameCache->getSpriteFrameByName("balk_fire.png");
+    spriteFrame = cocos2d::SpriteFrame::create("balk_fire.png", cocos2d::Rect(0, 0, 100, 100));
+    //spriteFrameCache->addSpriteFrame(spriteFrame, "balk_fire");
+    ms_spriteFrames.insert(BALK_FIRE, spriteFrame);
     
-    spriteFrame = spriteFrameCache->getSpriteFrameByName("balk_fire.png");
-    //ms_spriteFrames.insert(1, spriteFrame);
-    
-    spriteFrame = spriteFrameCache->getSpriteFrameByName("balk_ballnet.png");
-    //ms_spriteFrames.insert(2, spriteFrame);
+    spriteFrame = cocos2d::SpriteFrame::create("balk_ballnet.png", cocos2d::Rect(0, 0, 100, 100));
+    //spriteFrameCache->addSpriteFrame(spriteFrame, "balk_ballnet");
+    //spriteFrame = spriteFrameCache->getSpriteFrameByName("balk_ballnet.png");
+    ms_spriteFrames.insert(BALK_BALLNET, spriteFrame);
     
     return true;
 }

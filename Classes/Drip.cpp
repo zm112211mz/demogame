@@ -10,6 +10,10 @@
 
 bool Drip::ms_isSpriteFramesInitialized = false;
 
+cocos2d::Map<int, cocos2d::SpriteFrame *> Drip::ms_spriteFrames;
+
+cocos2d::Map<int, cocos2d::Animation *> Drip::ms_animations;
+
 Drip::Drip():m_modality(DRIP_MODALITY_WATER),m_nextModality(DRIP_MODALITY_WATER),m_state(DRIP_STATE_RUNNING)
 {
     if (!ms_isSpriteFramesInitialized)
@@ -67,8 +71,6 @@ bool Drip::init()
 
 bool Drip::initWithModality(DripModality dripModality)
 {
-    return true;
-    /*
     cocos2d::SpriteFrame *spriteFrame = ms_spriteFrames.at(dripModality);
     
     if (cocos2d::Sprite::initWithSpriteFrame(spriteFrame))
@@ -82,7 +84,7 @@ bool Drip::initWithModality(DripModality dripModality)
     {
         CCLOGERROR("Drip: init Drip with DripModality %d failed", dripModality);
         return false;
-    }*/
+    }
 }
 
 float Drip::getWidth()

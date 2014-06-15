@@ -88,6 +88,7 @@
 		F9919279194C54AB0059CFB3 /* BlockFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9919275194C54AB0059CFB3 /* BlockFactory.cpp */; };
 		F991927A194C54AB0059CFB3 /* DemoBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9919277194C54AB0059CFB3 /* DemoBlock.cpp */; };
 		F991927D194C872F0059CFB3 /* Drip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F991927B194C872F0059CFB3 /* Drip.cpp */; };
+		F9E177DD194DD23A00A5D71D /* TestBalkLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9E177DB194DD23A00A5D71D /* TestBalkLayer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -315,6 +316,9 @@
 		F9919278194C54AB0059CFB3 /* DemoBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DemoBlock.h; path = ../Classes/DemoBlock.h; sourceTree = "<group>"; };
 		F991927B194C872F0059CFB3 /* Drip.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Drip.cpp; path = ../Classes/Drip.cpp; sourceTree = "<group>"; };
 		F991927C194C872F0059CFB3 /* Drip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Drip.h; path = ../Classes/Drip.h; sourceTree = "<group>"; };
+		F9E177DB194DD23A00A5D71D /* TestBalkLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestBalkLayer.cpp; path = ../Classes/TestBalkLayer.cpp; sourceTree = "<group>"; };
+		F9E177DC194DD23A00A5D71D /* TestBalkLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestBalkLayer.h; path = ../Classes/TestBalkLayer.h; sourceTree = "<group>"; };
+		F9E177E1194DD50200A5D71D /* GameMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameMacros.h; path = ../Classes/GameMacros.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -384,6 +388,7 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F9E177D8194DD21D00A5D71D /* Test */,
 				F9919275194C54AB0059CFB3 /* BlockFactory.cpp */,
 				F9919276194C54AB0059CFB3 /* BlockFactory.h */,
 				F9919277194C54AB0059CFB3 /* DemoBlock.cpp */,
@@ -407,6 +412,7 @@
 				F9919266194601AE0059CFB3 /* GameTypes.h */,
 				F991927B194C872F0059CFB3 /* Drip.cpp */,
 				F991927C194C872F0059CFB3 /* Drip.h */,
+				F9E177E1194DD50200A5D71D /* GameMacros.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -554,6 +560,15 @@
 				F991926E194759190059CFB3 /* balk_fire.png */,
 			);
 			name = Balk;
+			sourceTree = "<group>";
+		};
+		F9E177D8194DD21D00A5D71D /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				F9E177DB194DD23A00A5D71D /* TestBalkLayer.cpp */,
+				F9E177DC194DD23A00A5D71D /* TestBalkLayer.h */,
+			);
+			name = Test;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -777,6 +792,7 @@
 				F98021B61942145400D53890 /* Terrain.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				F99192631945ECB00059CFB3 /* Balk.cpp in Sources */,
+				F9E177DD194DD23A00A5D71D /* TestBalkLayer.cpp in Sources */,
 				F98021B51942145400D53890 /* Player.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,

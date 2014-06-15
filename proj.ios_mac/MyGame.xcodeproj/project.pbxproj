@@ -87,6 +87,7 @@
 		F99192741948A9580059CFB3 /* balk_ballnet.png in Resources */ = {isa = PBXBuildFile; fileRef = F99192731948A9580059CFB3 /* balk_ballnet.png */; };
 		F9919279194C54AB0059CFB3 /* BlockFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9919275194C54AB0059CFB3 /* BlockFactory.cpp */; };
 		F991927A194C54AB0059CFB3 /* DemoBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9919277194C54AB0059CFB3 /* DemoBlock.cpp */; };
+		F991927D194C872F0059CFB3 /* Drip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F991927B194C872F0059CFB3 /* Drip.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -312,6 +313,8 @@
 		F9919276194C54AB0059CFB3 /* BlockFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlockFactory.h; path = ../Classes/BlockFactory.h; sourceTree = "<group>"; };
 		F9919277194C54AB0059CFB3 /* DemoBlock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DemoBlock.cpp; path = ../Classes/DemoBlock.cpp; sourceTree = "<group>"; };
 		F9919278194C54AB0059CFB3 /* DemoBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DemoBlock.h; path = ../Classes/DemoBlock.h; sourceTree = "<group>"; };
+		F991927B194C872F0059CFB3 /* Drip.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Drip.cpp; path = ../Classes/Drip.cpp; sourceTree = "<group>"; };
+		F991927C194C872F0059CFB3 /* Drip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Drip.h; path = ../Classes/Drip.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -402,6 +405,8 @@
 				F99192611945ECB00059CFB3 /* Balk.cpp */,
 				F99192621945ECB00059CFB3 /* Balk.h */,
 				F9919266194601AE0059CFB3 /* GameTypes.h */,
+				F991927B194C872F0059CFB3 /* Drip.cpp */,
+				F991927C194C872F0059CFB3 /* Drip.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -767,6 +772,7 @@
 			files = (
 				F9919279194C54AB0059CFB3 /* BlockFactory.cpp in Sources */,
 				F991927A194C54AB0059CFB3 /* DemoBlock.cpp in Sources */,
+				F991927D194C872F0059CFB3 /* Drip.cpp in Sources */,
 				F98021B41942145400D53890 /* GameSprite.cpp in Sources */,
 				F98021B61942145400D53890 /* Terrain.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,

@@ -9,11 +9,22 @@
 #ifndef MyGame_GameTypes_h
 #define MyGame_GameTypes_h
 
-enum PlayerType
+enum DripModality
 {
-    PLAYER_CLOUD,
-    PLAYER_WATER,
-    PLAYER_ICE,
+    DRIP_MODALITY_CLOUD,
+    DRIP_MODALITY_WATER,
+    DRIP_MODALITY_ICE,
+};
+
+enum DripState
+{
+    DRIP_STATE_RUNNING,
+    DRIP_STATE_JUMPING,
+    DRIP_STATE_FLOATING,
+    DRIP_STATE_FLYING,
+    DRIP_STATE_FALLING,
+    DRIP_STATE_MODALITYING,
+    DRIP_STATE_DYING,
 };
 
 enum BlockType{

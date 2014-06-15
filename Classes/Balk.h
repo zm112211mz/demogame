@@ -9,7 +9,6 @@
 #ifndef __MyGame__Balk__
 #define __MyGame__Balk__
 
-#include <iostream>
 #include "cocos2d.h"
 #include "GameTypes.h"
 
@@ -29,10 +28,10 @@ public:
     float getHeight(void);
     
     // if the player can pass when player meets the Balk
-    bool isPassAllowed(PlayerType playerType);
+    bool isPassAllowed(DripModality dripModality);
     
     // play the animation when player passes the Balk
-    void playPassAnimation(PlayerType playerType);
+    void playPassAnimation(DripModality dripModality);
     
     CC_SYNTHESIZE_READONLY(BalkType, m_type, Type);
     
@@ -47,7 +46,7 @@ protected:
     static bool ms_isSpriteFramesInitialized;
     
     // all the SpriteFrames
-    static cocos2d::Map<BalkType, cocos2d::SpriteFrame *> ms_spriteFrames;
+    //static cocos2d::Map<int, cocos2d::SpriteFrame *> ms_spriteFrames;
     
 };
 

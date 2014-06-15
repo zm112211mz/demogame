@@ -29,9 +29,15 @@ Balk* Balk::create()
     if (balk && balk->init())
     {
         balk->autorelease();
+        
+        CCLOGINFO("Balk: create Balk succeeded");
+        
         return balk;
     }
     CC_SAFE_DELETE(balk);
+    
+    CCLOGERROR("Balk: create Balk failed");
+    
     return nullptr;
 }
 
@@ -56,17 +62,23 @@ Balk* Balk::createWithType(BalkType balkType)
 
 bool Balk::init()
 {
-    if (!cocos2d::Sprite::init())
+    if (cocos2d::Sprite::init())
     {
+        CCLOGINFO("Balk: init Balk succeeded");
         return false;
     }
-    return true;
+    else
+    {
+        CCLOGERROR("Balk: init Balk failed");
+        return false;
+    }
 }
 
 bool Balk::initWithType(BalkType balkType)
 {
-    cocos2d::SpriteFrame *spriteFrame = ms_spriteFrames.at(balkType);
-    
+    //cocos2d::SpriteFrame *spriteFrame = ms_spriteFrames.at(1);
+    return true;
+    /*
     if (cocos2d::Sprite::initWithSpriteFrame(spriteFrame))
     {
         CCLOGINFO("Balk: init Balk with BalkType %d succeeded", balkType);
@@ -78,6 +90,7 @@ bool Balk::initWithType(BalkType balkType)
         CCLOGERROR("Balk: init Balk with BalkType %d failed", balkType);
         return false;
     }
+    */
 }
 
 float Balk::getWidth()
@@ -90,13 +103,13 @@ float Balk::getHeight()
     return cocos2d::Sprite::getContentSize().height;
 }
 
-bool Balk::isPassAllowed(PlayerType playerType)
+bool Balk::isPassAllowed(DripModality dripModality)
 {
     bool allow = false;
     
-    switch (playerType)
+    switch (dripModality)
     {
-        case PLAYER_CLOUD:
+        case DRIP_MODALITY_CLOUD:
             switch (m_type)
             {
                 case BALK_FIRE:
@@ -115,7 +128,7 @@ bool Balk::isPassAllowed(PlayerType playerType)
             }
             break;
             
-        case PLAYER_WATER:
+        case DRIP_MODALITY_WATER:
             switch (m_type)
             {
                 case BALK_BIG_BALLNET:
@@ -137,7 +150,7 @@ bool Balk::isPassAllowed(PlayerType playerType)
             }
             break;
             
-        case PLAYER_ICE:
+        case DRIP_MODALITY_ICE:
             switch (m_type)
             {
                 case BALK_BIG_GLASS:
@@ -166,21 +179,21 @@ bool Balk::isPassAllowed(PlayerType playerType)
     return allow;
 }
 
-void Balk::playPassAnimation(PlayerType playerType)
+void Balk::playPassAnimation(DripModality dripModality)
 {
     
 }
 
 bool Balk::initSpriteFrames()
 {
-    cocos2d::SpriteFrame *spriteFrame = NULL;
+    cocos2d::SpriteFrame *spriteFrame = nullptr;
     cocos2d::SpriteFrameCache *spriteFrameCache = cocos2d::SpriteFrameCache::getInstance();
     
     spriteFrame = spriteFrameCache->getSpriteFrameByName("balk_fire.png");
-    ms_spriteFrames.insert(BALK_FIRE, spriteFrame);
+    //ms_spriteFrames.insert(1, spriteFrame);
     
     spriteFrame = spriteFrameCache->getSpriteFrameByName("balk_ballnet.png");
-    ms_spriteFrames.insert(BALK_BALLNET, spriteFrame);
+    //ms_spriteFrames.insert(2, spriteFrame);
     
     return true;
 }

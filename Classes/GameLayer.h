@@ -29,7 +29,7 @@ class GameLayer : public cocos2d::CCLayer
 {
 	Terrain * _terrain;
 	Player * _player;
-	CCLabelBMFont * _scoreDisplay;
+	LabelBMFont * _scoreDisplay;
 
 	Sprite * _intro;
 	Sprite * _tryAgain;
@@ -43,7 +43,7 @@ class GameLayer : public cocos2d::CCLayer
 	Array * _clouds;
 	SpriteBatchNode * _gameBatchNode;
     CCLabelTTF * _tutorialLabel;
-    CCMenu* _mainMenu;
+    Menu* _mainMenu;
 
 	Size _screenSize;
 
@@ -70,8 +70,8 @@ public:
 
 	void update (float dt);
 
-	virtual void onTouchesBegan(CCSet *pTouches, CCEvent *event);
-	virtual void onTouchesEnded(CCSet *pTouches, CCEvent *event);
+	virtual void onTouchesBegan(Set *pTouches, Event *event);
+	virtual void onTouchesEnded(Set *pTouches, Event *event);
 
 	virtual bool onTouchBegan(Touch *touch, Event *unused_event); 
     virtual void onTouchEnded(Touch *touch, Event *unused_event); 

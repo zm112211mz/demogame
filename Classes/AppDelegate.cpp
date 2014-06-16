@@ -3,6 +3,7 @@
 #include "GameLayer.h"
 
 USING_NS_CC;
+#define DEBUG_ON 0
 
 AppDelegate::AppDelegate() {
 
@@ -26,10 +27,12 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);
-
+#if DEBUG_ON
+	auto scene = HelloWorld::createScene();
+#else
     // create a scene. it's an autorelease object
     auto scene = GameLayer::scene();
-
+#endif
     // run
     director->runWithScene(scene);
 

@@ -53,7 +53,7 @@ Terrain* Terrain::create(float scaleRate) {
 		CCDirector::sharedDirector()->getWinSize().width,
 		CCDirector::sharedDirector()->getWinSize().height);
 	if (terrain && terrain->initWithSpriteFrameName("blank.png")) {
-		terrain->setAnchorPoint(ccp(0, 0));
+		terrain->setAnchorPoint(Point(0, 0));
 		//初始化地形图
 		terrain->initTerrain();
 		terrain->autorelease();
@@ -137,8 +137,8 @@ void Terrain::checkCollision(Player *player) {
             
 			if (player->bottom() >= block->top() && player->next_bottom() <= block->top()
 				&& player->top() > block->top()) {
-				player->setNextPosition(ccp(player->getNextPosition().x, block->top() + player->getHeight()));
-				player->setVector(ccp(player->getVector().x, 0));
+				player->setNextPosition(Point(player->getNextPosition().x, block->top() + player->getHeight()));
+				player->setVector(Point(player->getVector().x, 0));
 				// Sets the rotation (angle) of the node in degrees
                 player->setRotation(0.0);
                 inAir = false;
@@ -164,8 +164,8 @@ void Terrain::checkCollision(Player *player) {
 				&& player->left() < this->getPositionX() + block->getPositionX()) {
 
 				player->setPositionX(this->getPositionX() + block->getPositionX() - player->getWidth() * 0.5f);
-				player->setNextPosition(ccp(this->getPositionX() + block->getPositionX() - player->getWidth() * 0.5f, player->getNextPosition().y));
-				player->setVector(ccp(player->getVector().x * -0.5f, player->getVector().y));
+				player->setNextPosition(Point(this->getPositionX() + block->getPositionX() - player->getWidth() * 0.5f, player->getNextPosition().y));
+				player->setVector(Point(player->getVector().x * -0.5f, player->getVector().y));
 				//主角装墙上了
 				if (player->bottom() + player->getHeight() * 0.2f < block->top()) {
 					player->setState(kPlayerDying);
@@ -226,7 +226,7 @@ void Terrain::move(float xMove) {
 
 void Terrain::reset() {
 
-	this->setPosition(ccp(0, 0));
+	this->setPosition(Point(0, 0));
 	_startTerrain = false;
 
 	int count = _blocks->count();

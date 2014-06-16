@@ -68,7 +68,7 @@ void GameBlock::setPuffing(bool value) {
 				puff->setScale(1.0);
 				
 				puff->setOpacity(255);
-				puff->setPosition(ccp(0, 0));
+				puff->setPosition(Point(0, 0));
 			}
 		}
 	}
@@ -137,8 +137,8 @@ void GameBlock::setupBlock(int width, int height, int type, float scaleRate) {
 		float chimneyX = (i + 0.7) * _tileWidth; 
 		chimney = (GameSprite *)_chimneys->objectAtIndex(i);
 		if (i < num_chimneys) {
-			chimney->setPosition(ccp(chimneyX, 0));
-			//chimney->setPosition(ccp(chimneyX[i] * _width, 0));
+			chimney->setPosition(Point(chimneyX, 0));
+			//chimney->setPosition(Point(chimneyX[i] * _width, 0));
 			chimney->setVisible(true);
 
 		}
@@ -197,8 +197,8 @@ void GameBlock::initBlock() {
 
 	for (i = 0; i < 5; i++) {
 		tile = Sprite::createWithSpriteFrameName("roof_1.png");
-		tile->setAnchorPoint(ccp(0, 1));
-		tile->setPosition(ccp(i * _tileWidth, 0));
+		tile->setAnchorPoint(Point(0, 1));
+		tile->setPosition(Point(i * _tileWidth, 0));
 		tile->setVisible(false);
 		tile->setScale(_scaleRate);
 		this->addChild(tile, kMiddleground, kRoofTile);
@@ -206,8 +206,8 @@ void GameBlock::initBlock() {
 
 		for (int j = 0; j < 4; j++) {
 			tile = Sprite::createWithSpriteFrameName("building_1.png");
-			tile->setAnchorPoint(ccp(0, 1));
-			tile->setPosition(ccp(i * _tileWidth, -1 * (_tileHeight * 0.47f + j * _tileHeight)));
+			tile->setAnchorPoint(Point(0, 1));
+			tile->setPosition(Point(i * _tileWidth, -1 * (_tileHeight * 0.47f + j * _tileHeight)));
 			tile->setVisible(false);
 			tile->setScale(_scaleRate);
 			this->addChild(tile, kBackground, kWallTile);
@@ -230,7 +230,7 @@ void GameBlock::initBlock() {
 
 		for (int j = 0; j < TOTAL_PUFFS; j++) {
 			puff = Sprite::createWithSpriteFrameName("puff_1.png");
-			puff->setAnchorPoint(ccp(0, -0.5));
+			puff->setAnchorPoint(Point(0, -0.5));
 			puff->setVisible(false);
 			puff->setScale(_scaleRate);
 			chimney->addChild(puff, -1, j);
@@ -259,7 +259,7 @@ void GameBlock::initBlock() {
 		NULL), TOTAL_PUFFS);
 	_puffSpawn->retain();
 
-	_puffMove = CCMoveBy::create(1.0f, ccp(-100, 80));
+	_puffMove = CCMoveBy::create(1.0f, Point(-100, 80));
 	_puffMove->retain();
 	_puffFade = CCFadeOut::create(2.0f);
 	_puffFade->retain();
@@ -293,7 +293,7 @@ void GameBlock::createPuff() {
 			animation->setLoops(-1);
 
 			Action * puffAnimation = Animate::create(animation);
-			Action * puffMove = CCMoveBy::create(1.0f, ccp(-100, 80));
+			Action * puffMove = CCMoveBy::create(1.0f, Point(-100, 80));
 			Action * puffScale = CCScaleBy::create(1.5f, 1.5);
 
 			puff = (Sprite *)chimney->getChildByTag(_puffIndex);
@@ -301,7 +301,7 @@ void GameBlock::createPuff() {
 			puff->stopAllActions();
 			puff->setScale(1.0);
 			puff->setOpacity(255);
-			puff->setPosition(ccp(0, 0));
+			puff->setPosition(Point(0, 0));
 			puff->runAction((Action *)_puffAnimation->clone());
 			puff->runAction((Action *)_puffMove->clone());
 			//puff->runAction((Action *) _puffFade->copy()->autorelease());

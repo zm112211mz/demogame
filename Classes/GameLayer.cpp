@@ -88,15 +88,15 @@ void GameLayer::resetGame () {
     char szValue[100] = {0};
     sprintf(szValue, "%i", (int) _score);
     _scoreDisplay->setString (szValue);
-    _scoreDisplay->setAnchorPoint(ccp(1,0));
-    _scoreDisplay->setPosition(ccp(_screenSize.width * 0.95f, _screenSize.height * 0.88f));
+    _scoreDisplay->setAnchorPoint(Point(1,0));
+    _scoreDisplay->setPosition(Point(_screenSize.width * 0.95f, _screenSize.height * 0.88f));
     
     _state = kGameIntro;
     
     _intro->setVisible(true);
     _mainMenu->setVisible(true);
     
-    _jam->setPosition(ccp(_screenSize.width * 0.19f, _screenSize.height * 0.47f));
+    _jam->setPosition(Point(_screenSize.width * 0.19f, _screenSize.height * 0.47f));
     _jam->setVisible(true);
     _jam->runAction(_jamAnimate);
 	_running = true;
@@ -118,15 +118,15 @@ void GameLayer::update(float dt) {
             _state = kGameOver;
             
             _tryAgain->setVisible(true);
-            _scoreDisplay->setAnchorPoint(ccp(0.5f, 0.5f));
-            _scoreDisplay->setPosition(ccp(_screenSize.width * 0.5f,
+            _scoreDisplay->setAnchorPoint(Point(0.5f, 0.5f));
+            _scoreDisplay->setPosition(Point(_screenSize.width * 0.5f,
                                            _screenSize.height * 0.88f));
-            _hat->setPosition(ccp(_screenSize.width * 0.2f, -_screenSize.height * 0.1f));
+            _hat->setPosition(Point(_screenSize.width * 0.2f, -_screenSize.height * 0.1f));
             _hat->setVisible(true);
 
 			//旋转精灵，以度为单位
             Action * rotate = CCRotateBy::create(2.0f, 660);
-            Action * jump = CCJumpBy::create(2.0f, ccp(0,10), _screenSize.height * 0.8f, 1);
+            Action * jump = CCJumpBy::create(2.0f, Point(0,10), _screenSize.height * 0.8f, 1);
 			
 			//主角死亡，帽子旋转跳起
             _hat->runAction(rotate);
@@ -224,7 +224,7 @@ void GameLayer::update(float dt) {
     }
 }
 
-void GameLayer::onTouchesBegan(CCSet* pTouches, CCEvent* event) {
+void GameLayer::onTouchesBegan(Set* pTouches, Event* event) {
 
 	CCTouch *touch = (CCTouch *)pTouches->anyObject();
     
@@ -358,7 +358,7 @@ bool GameLayer::onTouchBegan(Touch *touch, Event *unused_event) {
 }
 
 
-void GameLayer::onTouchesEnded(CCSet* pTouches, CCEvent* event) {
+void GameLayer::onTouchesEnded(Set* pTouches, Event* event) {
     if (_state == kGamePlay) {
         //_player->setJumping(false);
     }
@@ -396,7 +396,7 @@ void GameLayer::createGameScreen () {
     Sprite * bg = Sprite::create("bg.png");
 	this->checkScaleRate( _screenSize, bg->getContentSize() );
 	
-    bg->setPosition(ccp(_screenSize.width * 0.5f, _screenSize.height * 0.5f));
+    bg->setPosition(Point(_screenSize.width * 0.5f, _screenSize.height * 0.5f));
     this->addChild(bg, kBackground);
 
 	Action *scaleByRate = ScaleBy::create(0, _scaleRate);
@@ -410,32 +410,32 @@ void GameLayer::createGameScreen () {
     Sprite * repeat;
     
     _background = Sprite::createWithSpriteFrameName("background.png");
-    _background->setAnchorPoint(ccp(0,0));
+    _background->setAnchorPoint(Point::ZERO);
     _gameBatchNode->addChild(_background, kBackground);
     
     repeat = Sprite::createWithSpriteFrameName("background.png");
-    repeat->setAnchorPoint(ccp(0,0));
-    repeat->setPosition(ccp(repeat->getContentSize().width - 1, 0));
+    repeat->setAnchorPoint(Point::ZERO);
+    repeat->setPosition(Point(repeat->getContentSize().width - 1, 0));
     _background->addChild(repeat, kBackground);
     
     repeat = Sprite::createWithSpriteFrameName("background.png");
-    repeat->setAnchorPoint(ccp(0,0));
-    repeat->setPosition(ccp(2 * (repeat->getContentSize().width - 1), 0));
+    repeat->setAnchorPoint(Point::ZERO);
+    repeat->setPosition(Point(2 * (repeat->getContentSize().width - 1), 0));
     _background->addChild(repeat, kBackground);
     
 	//设置路灯
     _foreground = Sprite::createWithSpriteFrameName("lamp.png");
-    _foreground->setAnchorPoint(ccp(0,0));
+    _foreground->setAnchorPoint(Point::ZERO);
     _gameBatchNode->addChild(_foreground, kForeground);
     
     repeat = Sprite::createWithSpriteFrameName("lamp.png");
-    repeat->setAnchorPoint(ccp(0,0));
-    repeat->setPosition(ccp(repeat->getContentSize().width * 4, 0));
+    repeat->setAnchorPoint(Point::ZERO);
+    repeat->setPosition(Point(repeat->getContentSize().width * 4, 0));
     _foreground->addChild(repeat, kBackground);
     
     repeat = Sprite::createWithSpriteFrameName("lamp.png");
-    repeat->setAnchorPoint(ccp(0,0));
-    repeat->setPosition(ccp(repeat->getContentSize().width * 8, 0));
+    repeat->setAnchorPoint(Point::ZERO);
+    repeat->setPosition(Point(repeat->getContentSize().width * 8, 0));
     _foreground->addChild(repeat, kBackground);
     
     //加入精灵云
@@ -447,7 +447,7 @@ void GameLayer::createGameScreen () {
 		//云位置：一低一高一低一高显示
         cloud_y = i % 2 == 0 ? _screenSize.height * 0.7f : _screenSize.height * 0.8f;
         cloud = Sprite::createWithSpriteFrameName("cloud.png");
-        cloud->setPosition(ccp (_screenSize.width * 0.15f + i * _screenSize.width * 0.25f,  cloud_y));
+        cloud->setPosition(Point (_screenSize.width * 0.15f + i * _screenSize.width * 0.25f,  cloud_y));
         _gameBatchNode->addChild(cloud, kBackground);
         _clouds->addObject(cloud);
     }
@@ -462,19 +462,19 @@ void GameLayer::createGameScreen () {
 
 	//加入logo
     _intro = Sprite::createWithSpriteFrameName("logo.png");
-    _intro->setPosition(ccp(_screenSize.width * 0.5f, _screenSize.height * 0.7f));
+    _intro->setPosition(Point(_screenSize.width * 0.5f, _screenSize.height * 0.7f));
     _gameBatchNode->addChild(_intro, kForeground);
 
 	//加入重试
     _tryAgain = Sprite::createWithSpriteFrameName("label_tryagain.png");
-    _tryAgain->setPosition(ccp(_screenSize.width * 0.5f, _screenSize.height * 0.7f));
+    _tryAgain->setPosition(Point(_screenSize.width * 0.5f, _screenSize.height * 0.7f));
     _tryAgain->setVisible(false);
     this->addChild(_tryAgain, kForeground);
     
     //加入积分板
-    _scoreDisplay = CCLabelBMFont::create("000000", "font.fnt", _screenSize.width * 0.3f, kCCTextAlignmentCenter);
-    _scoreDisplay->setAnchorPoint(ccp(1,0));
-    _scoreDisplay->setPosition(ccp(_screenSize.width * 0.95f, _screenSize.height * 0.88f));
+    _scoreDisplay = LabelBMFont::create("000000", "font.fnt", _screenSize.width * 0.3f, kCCTextAlignmentCenter);
+    _scoreDisplay->setAnchorPoint(Point(1,0));
+    _scoreDisplay->setPosition(Point(_screenSize.width * 0.95f, _screenSize.height * 0.88f));
     this->addChild(_scoreDisplay, kBackground);
     
     //加入帽子
@@ -505,9 +505,9 @@ void GameLayer::createGameScreen () {
     _jamAnimate->retain();
     _gameBatchNode->addChild(_jam, kBackground);
     
-    _jam->setPosition(ccp(_screenSize.width * 0.19f, _screenSize.height * 0.47f));
+    _jam->setPosition(Point(_screenSize.width * 0.19f, _screenSize.height * 0.47f));
 	_jam->setScale(_scaleRate);
-    _jamMove = CCMoveTo::create(6.0f, ccp(-_screenSize.width * 0.3f, _jam->getPositionY()));
+    _jamMove = CCMoveTo::create(6.0f, Point(-_screenSize.width * 0.3f, _jam->getPositionY()));
     _jamMove->retain();
     
     //add menu
@@ -533,15 +533,15 @@ void GameLayer::createGameScreen () {
                                                             (cocos2d::Ref*)this,
                                                             menu_selector(GameLayer::showTutorial));
     
-    _mainMenu = CCMenu::create(howToItem, starGametItem, NULL);//创建菜单
+    _mainMenu = Menu::create(howToItem, starGametItem, NULL);//创建菜单
     _mainMenu->alignItemsHorizontallyWithPadding(120);//设置两个菜单的水平间距
     //_mainMenu->alignItemsVerticallyWithPadding(50);
-    _mainMenu->setPosition(ccp(_screenSize.width * 0.5f, _screenSize.height * 0.54));
+    _mainMenu->setPosition(Point(_screenSize.width * 0.5f, _screenSize.height * 0.54));
 
     this->addChild(_mainMenu, kForeground);
       
     _tutorialLabel = CCLabelTTF::create("", "Times New Roman", 25);
-    _tutorialLabel->setPosition(ccp (_screenSize.width * 0.5f, _screenSize.height * 0.6f) );
+    _tutorialLabel->setPosition(Point (_screenSize.width * 0.5f, _screenSize.height * 0.6f) );
     this->addChild(_tutorialLabel, kForeground);
     _tutorialLabel->setVisible(false);
     

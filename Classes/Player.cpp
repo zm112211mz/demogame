@@ -21,7 +21,7 @@ Player::Player(float scaleRate) {
 	_speed = PLAYER_INITIAL_SPEED;
 	_maxSpeed = PLAYER_INITIAL_SPEED;
 	_floating = false;
-	_nextPosition = CCPointZero;
+	_nextPosition = Point::ZERO;
 	_nextPosition.y = _screenSize.height * 0.8f;
 	_state = kPlayerMoving;
 	_jumping = false;
@@ -114,11 +114,11 @@ void Player::reset () {
 
 	_speed = PLAYER_INITIAL_SPEED;
 	_maxSpeed = PLAYER_INITIAL_SPEED;
-	_vector = ccp(0,0);
+	_vector = Point::ZERO;
 	this->setFloating(false);
 	this->setRotation(0);
 	_nextPosition.y = _screenSize.height * 0.6f;
-	this->setPosition(ccp( _screenSize.width * 0.2f, _nextPosition.y ));
+	this->setPosition(Point( _screenSize.width * 0.2f, _nextPosition.y ));
 	_state = kPlayerMoving;
 	_jumping = false;
 	_hasFloated = false;
@@ -152,8 +152,8 @@ void Player::setFloating (bool value) {
 void Player::initPlayer () {
 
 	//设置锚点
-	this->setAnchorPoint(ccp(0.5f, 1.0f));
-	this->setPosition(ccp(_screenSize.width * 0.2f, _nextPosition.y));
+	this->setAnchorPoint(Point(0.5f, 1.0f));
+	this->setPosition(Point(_screenSize.width * 0.2f, _nextPosition.y));
 	this->setScale(_scaleRate);
 
 	_height = this->getContentSize().height * _scaleRate * 0.95; //去掉sprite下面的白边

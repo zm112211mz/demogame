@@ -1,7 +1,7 @@
 #include "HelloWorldScene.h"
 #include "BlockFactory.h"
 
-USING_NS_CC;
+
 
 Scene* HelloWorld::createScene()
 {
@@ -21,51 +21,66 @@ Scene* HelloWorld::createScene()
 // on "init" you need to initialize your instance
 bool HelloWorld::init()
 {
-    //////////////////////////////
-    // 1. super init first
     if ( !Layer::init() )
     {
         return false;
     }
-    
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    Point origin = Director::getInstance()->getVisibleOrigin();
 
-    /////////////////////////////
-    // 2. add a menu item with "X" image, which is clicked to quit the program
-    //    you may modify it.
-
-    // add a "close" icon to exit the progress. it's an autorelease object
-    auto closeItem = MenuItemImage::create(
-                                           "CloseNormal.png",
-                                           "CloseSelected.png",
-                                           CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));
-    
-	closeItem->setPosition(Point(origin.x + visibleSize.width - closeItem->getContentSize().width/2 ,
-                                origin.y + closeItem->getContentSize().height/2));
-
-    // create menu, it's an autorelease object
-    auto menu = Menu::create(closeItem, NULL);
-    menu->setPosition(Point::ZERO);
-    this->addChild(menu, 1);
-
-    // add "HelloWorld" splash screen"
-    auto sprite = Sprite::create("HelloWorld.png");
-
-    // position the sprite on the center of the screen
-    sprite->setPosition(Point(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
-
-    // add the sprite as a child to this layer
-    this->addChild(sprite, 0);
-
-	//SpriteFrameCache（精灵帧缓存）主要用来存放SpriteFrame，它没有提供特别的属性，而是提供一系列用于管理SpriteFrame的方法
+	//init resource
     SpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("sprite_sheet.plist","sprite_sheet.png");
 
-	DemoBlock *db = BlockFactory::getBlock(4, 4, demoBlockGap);
-	db->setScale(3);
-	this->addChild(db);
+	this->reset();
     
     return true;
+}
+
+void HelloWorld::reset()
+{
+	this->removeAllChildren();
+
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+    Point origin = Director::getInstance()->getVisibleOrigin();
+
+	//create menu
+	_mainMenu = Menu::create();
+
+	addMenuItem(_mainMenu, "Start Game", CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));
+	addMenuItem(_mainMenu, "Block Factory Test", CC_CALLBACK_1(HelloWorld::menuTestBlockFactory, this));
+	addMenuItem(_mainMenu, "Start Game", CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));
+	addMenuItem(_mainMenu, "Exit", CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));
+
+	float Y_top, Y_end, Ydelta, Y;
+	Y_top = Y = visibleSize.height * 0.8;
+	Y_end = visibleSize.height * 0.2;
+	Ydelta = (Y_top - Y_end)/(_mainMenu->getChildrenCount() + 1);
+
+    for(const auto &child : _mainMenu->getChildren()) {
+		Y -= Ydelta;
+		child->setPosition( Point( visibleSize.width/2, Y) );
+    }
+	_mainMenu->setPosition(0,0);
+
+	addChild(this->_mainMenu, 1);
+
+	auto lable = CCLabelTTF::create("Back",  "Arial", 20);
+    auto item = MenuItemLabel::create(lable, CC_CALLBACK_1(HelloWorld::menuCleanUp, this));
+    item->setDisabledColor( Color3B(32,32,64) );
+    item->setColor( Color3B(200,200,255) );
+	item->setPosition(visibleSize.width - item->getContentSize().width, item->getContentSize().height);
+	auto backMenu = Menu::create(item, NULL);
+	backMenu->setPosition(0, 0);
+	addChild(backMenu, 0);
+}
+
+//util function to add menuItem
+void HelloWorld::addMenuItem(Menu *menu, std::string text, const ccMenuCallback& callback)
+{
+	auto lable = CCLabelTTF::create(text,  "Arial", 20);
+    auto item = MenuItemLabel::create(lable, callback);
+    item->setDisabledColor( Color3B(32,32,64) );
+    item->setColor( Color3B(200,200,255) );
+
+	this->_mainMenu->addChild(item);
 }
 
 
@@ -82,3 +97,17 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
     exit(0);
 #endif
 }
+
+void HelloWorld::menuTestBlockFactory(Ref* pSender)
+{
+	this->_mainMenu->setVisible(false);
+	DemoBlock *db = BlockFactory::getBlock(4, 4, demoBlockGap);
+	db->setScale(3);
+	this->addChild(db);
+}
+
+void HelloWorld::menuCleanUp(Ref* pSender)
+{
+	this->reset();
+}
+

@@ -3,8 +3,13 @@
 
 #include "cocos2d.h"
 
+USING_NS_CC;
+
 class HelloWorld : public cocos2d::Layer
 {
+	Menu *_mainMenu;
+
+	void addMenuItem(Menu *menu, std::string text, const ccMenuCallback& callback);
 public:
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
     static cocos2d::Scene* createScene();
@@ -14,6 +19,14 @@ public:
     
     // a selector callback
     void menuCloseCallback(cocos2d::Ref* pSender);
+
+	void menuTestBlockFactory(cocos2d::Ref* pSender);
+
+	void menuStartGame(cocos2d::Ref* pSender);
+
+	void menuCleanUp(Ref* pSender);
+
+	void reset();
     
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);

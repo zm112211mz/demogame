@@ -1,5 +1,6 @@
 #include "HelloWorldScene.h"
 #include "BlockFactory.h"
+#include "TestBalkLayer.h"
 
 
 
@@ -46,7 +47,7 @@ void HelloWorld::reset()
 
 	addMenuItem(_mainMenu, "Start Game", CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));
 	addMenuItem(_mainMenu, "Block Factory Test", CC_CALLBACK_1(HelloWorld::menuTestBlockFactory, this));
-	addMenuItem(_mainMenu, "Start Game", CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));
+	addMenuItem(_mainMenu, "Balk Test", CC_CALLBACK_1(HelloWorld::menuTestBalkCallback, this));
 	addMenuItem(_mainMenu, "Exit", CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));
 
 	float Y_top, Y_end, Ydelta, Y;
@@ -104,6 +105,11 @@ void HelloWorld::menuTestBlockFactory(Ref* pSender)
 	DemoBlock *db = BlockFactory::getBlock(4, 4, demoBlockGap);
 	db->setScale(3);
 	this->addChild(db);
+}
+
+void HelloWorld::menuTestBalkCallback(cocos2d::Ref *pSender)
+{
+    cocos2d::Director::getInstance()->replaceScene(TestBalkLayer::createScene());
 }
 
 void HelloWorld::menuCleanUp(Ref* pSender)

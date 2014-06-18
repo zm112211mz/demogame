@@ -11,6 +11,7 @@
 
 #include "cocos2d.h"
 #include "GameTypes.h"
+#include "GameMacros.h"
 
 
 class Balk : public cocos2d::Sprite
@@ -38,18 +39,21 @@ public:
 protected:
     Balk();
     
-    // init all the SpriteFrames to accelerate the creating of Sprites,
+    // init all the Animates to accelerate the creating of Sprites,
     // called in the first constructor of Balk
-    static bool initSpriteFrames(void);
+    static bool initAnimates(void);
     
-    // if the SpriteFrames are initilized
-    static bool ms_isSpriteFramesInitialized;
+    // if the Animates are initilized
+    static bool ms_isAnimatesInitialized;
     
     // the SpriteFrames used to initilize the Sprites
-    static cocos2d::Map<int, cocos2d::SpriteFrame *> ms_spriteFrames;
+    //static cocos2d::Map<int, cocos2d::SpriteFrame *> ms_spriteFrames;
     
     // all the animates
     static cocos2d::Map<int, cocos2d::Animate *> ms_animates;
+    
+    // pass animates
+    static cocos2d::Map<int, cocos2d::Animate *> ms_passAnimates;
     
 };
 

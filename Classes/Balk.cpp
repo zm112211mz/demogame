@@ -8,17 +8,18 @@
 
 #include "Balk.h"
 
-bool Balk::ms_isSpriteFramesInitialized = false;
+bool Balk::ms_isAnimatesInitialized = false;
 
-cocos2d::Map<int, cocos2d::SpriteFrame *> Balk::ms_spriteFrames;
+//cocos2d::Map<int, cocos2d::SpriteFrame *> Balk::ms_spriteFrames;
 
 cocos2d::Map<int, cocos2d::Animate *> Balk::ms_animates;
+cocos2d::Map<int, cocos2d::Animate *> Balk::ms_passAnimates;
 
 Balk::Balk():m_type(BALK_NONE)
 {
-    if (!ms_isSpriteFramesInitialized)
+    if (!ms_isAnimatesInitialized)
     {
-        ms_isSpriteFramesInitialized = initSpriteFrames();
+        ms_isAnimatesInitialized = initAnimates();
     }
 }
 
@@ -80,12 +81,15 @@ bool Balk::init()
 
 bool Balk::initWithType(BalkType balkType)
 {
-    cocos2d::SpriteFrame *spriteFrame = ms_spriteFrames.at(balkType);
+    //cocos2d::SpriteFrame *spriteFrame = ms_spriteFrames.at(balkType);
     
-    if (cocos2d::Sprite::initWithSpriteFrame(spriteFrame))
+    //if (cocos2d::Sprite::initWithSpriteFrame(spriteFrame))
+    if (cocos2d::Sprite::init())
     {
-        CCLOGINFO("Balk: init Balk with BalkType %d succeeded", balkType);
         m_type = balkType;
+        this->runAction(ms_animates.at(balkType)->clone());
+        
+        CCLOGINFO("Balk: init Balk with BalkType %d succeeded", balkType);
         return true;
     }
     else
@@ -184,23 +188,40 @@ bool Balk::isPassAllowed(DripModality dripModality)
 
 void Balk::playPassAnimation(DripModality dripModality)
 {
-    
+    this->runAction(ms_passAnimates.at(m_type));
 }
 
-bool Balk::initSpriteFrames()
+bool Balk::initAnimates()
 {
     cocos2d::SpriteFrame *spriteFrame = nullptr;
+    cocos2d::AnimationFrame *animationFrame = nullptr;
+    cocos2d::ValueMap userInfo;
+    cocos2d::Vector<cocos2d::AnimationFrame *> animationFrames;
+    
     //cocos2d::SpriteFrameCache *spriteFrameCache = cocos2d::SpriteFrameCache::getInstance();
 
-    //spriteFrame = spriteFrameCache->getSpriteFrameByName("balk_fire.png");
     spriteFrame = cocos2d::SpriteFrame::create("balk_fire.png", cocos2d::Rect(0, 0, 100, 100));
-    //spriteFrameCache->addSpriteFrame(spriteFrame, "balk_fire");
-    ms_spriteFrames.insert(BALK_FIRE, spriteFrame);
+    //ms_spriteFrames.insert(BALK_FIRE, spriteFrame);
+    animationFrame = cocos2d::AnimationFrame::create(spriteFrame, 1, userInfo);
+    animationFrames.pushBack(animationFrame);
+    //animation->addSpriteFrame(spriteFrame);
     
     spriteFrame = cocos2d::SpriteFrame::create("balk_ballnet.png", cocos2d::Rect(0, 0, 100, 100));
-    //spriteFrameCache->addSpriteFrame(spriteFrame, "balk_ballnet");
-    //spriteFrame = spriteFrameCache->getSpriteFrameByName("balk_ballnet.png");
-    ms_spriteFrames.insert(BALK_BALLNET, spriteFrame);
+    //ms_spriteFrames.insert(BALK_BALLNET, spriteFrame);
+    animationFrame = cocos2d::AnimationFrame::create(spriteFrame, 1, userInfo);
+    animationFrames.pushBack(animationFrame);
+    //animation->addSpriteFrame(spriteFrame);
+
+    cocos2d::Animation *animation = cocos2d::Animation::create(animationFrames, 0.5f, ANIMATION_ENDLESS_LOOP);
+    
+    ms_animates.insert(BALK_FIRE, cocos2d::Animate::create(animation));
+    ms_animates.insert(BALK_ROCK, cocos2d::Animate::create(animation));
+    ms_animates.insert(BALK_BIG_BALLNET, cocos2d::Animate::create(animation));
+    ms_animates.insert(BALK_BIG_GLASS, cocos2d::Animate::create(animation));
+    ms_animates.insert(BALK_BALLNET, cocos2d::Animate::create(animation));
+    ms_animates.insert(BALK_GLASS, cocos2d::Animate::create(animation));
+    ms_animates.insert(BALK_BIRD, cocos2d::Animate::create(animation));
+    ms_animates.insert(BALK_BAFFLE, cocos2d::Animate::create(animation));
     
     return true;
 }

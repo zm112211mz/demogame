@@ -24,6 +24,8 @@ public:
 
 protected:
     TestBalkLayer();
+    
+    void backCallback(cocos2d::Ref *pSender);
 };
 
 #endif /* defined(__MyGame__TestBalkScene__) */

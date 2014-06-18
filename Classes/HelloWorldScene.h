@@ -21,6 +21,8 @@ public:
     void menuCloseCallback(cocos2d::Ref* pSender);
 
 	void menuTestBlockFactory(cocos2d::Ref* pSender);
+    
+    void menuTestBalkCallback(cocos2d::Ref* pSender);
 
 	void menuStartGame(cocos2d::Ref* pSender);
 

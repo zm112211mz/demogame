@@ -11,6 +11,7 @@
 
 #include "cocos2d.h"
 #include "GameTypes.h"
+#include "GameMacros.h"
 
 class Drip : public cocos2d::Sprite
 {

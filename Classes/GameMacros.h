@@ -25,4 +25,6 @@ return scene; \
 #define BALK_SPRITE_WIDTH  100
 #define BALK_SPRITE_HEIGHT 100
 
+#define ANIMATION_ENDLESS_LOOP -1
+
 #endif

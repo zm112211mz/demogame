@@ -528,6 +528,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F9E177E219507A6900A5D71D /* Drip */,
 				F9919270194759210059CFB3 /* Balk */,
 				F98021B91942146100D53890 /* bg.png */,
 				F98021BA1942146100D53890 /* blank.png */,
@@ -569,6 +570,13 @@
 				F9E177DC194DD23A00A5D71D /* TestBalkLayer.h */,
 			);
 			name = Test;
+			sourceTree = "<group>";
+		};
+		F9E177E219507A6900A5D71D /* Drip */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Drip;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

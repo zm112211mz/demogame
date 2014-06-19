@@ -8,17 +8,18 @@
 
 #include "Drip.h"
 
-bool Drip::ms_isSpriteFramesInitialized = false;
 
-cocos2d::Map<int, cocos2d::SpriteFrame *> Drip::ms_spriteFrames;
+bool Drip::ms_isAnimatesInitialized = false;
 
-cocos2d::Map<int, cocos2d::Animation *> Drip::ms_animations;
+//cocos2d::Map<int, cocos2d::SpriteFrame *> Drip::ms_spriteFrames;
+
+cocos2d::Map<int, cocos2d::Animate *> Drip::ms_animates;
 
 Drip::Drip():m_modality(DRIP_MODALITY_WATER),m_nextModality(DRIP_MODALITY_WATER),m_state(DRIP_STATE_RUNNING)
 {
-    if (!ms_isSpriteFramesInitialized)
+    if (!ms_isAnimatesInitialized)
     {
-        ms_isSpriteFramesInitialized = initSpriteFrames();
+        ms_isAnimatesInitialized = initAnimates();
     }
 }
 
@@ -71,13 +72,14 @@ bool Drip::init()
 
 bool Drip::initWithModality(DripModality dripModality)
 {
-    cocos2d::SpriteFrame *spriteFrame = ms_spriteFrames.at(dripModality);
-    
-    if (cocos2d::Sprite::initWithSpriteFrame(spriteFrame))
+    if (cocos2d::Sprite::init())
     {
         CCLOGINFO("Drip: init Drip with DripModality %d succeeded", dripModality);
         m_modality = dripModality;
         m_nextModality = dripModality;
+        
+        this->runAction(ms_animates.at(dripModality)->clone());
+        
         return true;
     }
     else
@@ -85,16 +87,6 @@ bool Drip::initWithModality(DripModality dripModality)
         CCLOGERROR("Drip: init Drip with DripModality %d failed", dripModality);
         return false;
     }
-}
-
-float Drip::getWidth()
-{
-    return cocos2d::Sprite::getContentSize().width;
-}
-
-float Drip::getHeight()
-{
-    return cocos2d::Sprite::getContentSize().height;
 }
 
 bool Drip::changeModality(DripModality dripModality)
@@ -176,7 +168,19 @@ DripState Drip::calculateState(DripModality dripModality, DripModality nextDripM
 }*/
 
 
-bool Drip::initSpriteFrames()
+bool Drip::initAnimates()
 {
+    CCLOG("Drip: start to init all the animates");
+    // cloud modality
+    ms_animates.insert(DRIP_MODALITY_CLOUD, loadAnimateByName("cloud_running", 5));
+    
+    // water modality
+    ms_animates.insert(DRIP_MODALITY_WATER, loadAnimateByName("water_running", 5));
+    
+    // ice modality
+    ms_animates.insert(DRIP_MODALITY_ICE, loadAnimateByName("ice_running", 5));
+    
+    CCLOG("Drip: finished to init all the animates");
+    
     return true;
 }

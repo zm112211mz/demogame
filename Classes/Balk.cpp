@@ -100,16 +100,6 @@ bool Balk::initWithType(BalkType balkType)
     
 }
 
-float Balk::getWidth()
-{
-    return cocos2d::Sprite::getContentSize().width;
-}
-
-float Balk::getHeight()
-{
-    return cocos2d::Sprite::getContentSize().height;
-}
-
 bool Balk::isPassAllowed(DripModality dripModality)
 {
     bool allow = false;
@@ -193,6 +183,7 @@ void Balk::playPassAnimation(DripModality dripModality)
 
 bool Balk::initAnimates()
 {
+    /*
     cocos2d::SpriteFrame *spriteFrame = nullptr;
     cocos2d::AnimationFrame *animationFrame = nullptr;
     cocos2d::ValueMap userInfo;
@@ -222,6 +213,9 @@ bool Balk::initAnimates()
     ms_animates.insert(BALK_GLASS, cocos2d::Animate::create(animation));
     ms_animates.insert(BALK_BIRD, cocos2d::Animate::create(animation));
     ms_animates.insert(BALK_BAFFLE, cocos2d::Animate::create(animation));
+     */
+    ms_animates.insert(BALK_FIRE, loadAnimateByName("balk_fire", 2));
+    ms_animates.insert(BALK_BALLNET, loadAnimateByName("balk_fire", 2));
     
     return true;
 }

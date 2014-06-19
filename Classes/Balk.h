@@ -11,10 +11,10 @@
 
 #include "cocos2d.h"
 #include "GameTypes.h"
-#include "GameMacros.h"
+#include "DemoSprite.h"
 
 
-class Balk : public cocos2d::Sprite
+class Balk : public DemoSprite
 {
 public:
     ~Balk();
@@ -24,9 +24,6 @@ public:
     
     bool init(void);
     bool initWithType(BalkType balkType);
-    
-    float getWidth(void);
-    float getHeight(void);
     
     // if the player can pass when player meets the Balk
     bool isPassAllowed(DripModality dripModality);

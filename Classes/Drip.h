@@ -11,9 +11,9 @@
 
 #include "cocos2d.h"
 #include "GameTypes.h"
-#include "GameMacros.h"
+#include "DemoSprite.h"
 
-class Drip : public cocos2d::Sprite
+class Drip : public DemoSprite
 {
 public:
     ~Drip();
@@ -23,9 +23,6 @@ public:
     
     bool init(void);
     bool initWithModality(DripModality dripModality);
-    
-    float getWidth(void);
-    float getHeight(void);
     
     // change from one DripModality to another
     bool changeModality(DripModality dripModality);
@@ -52,18 +49,20 @@ protected:
     
     cocos2d::Animation* generateModalityingAnimation(DripModality dripModality, DripModality nextDripModality);
     
-    // init all the SpriteFrames to accelerate the creating of Sprites,
-    // called in the first constructor of Drip
-    static bool initSpriteFrames(void);
+    // load the animate from file, called by initAnimates()
+    //static cocos2d::Animate *loadAnimateByName(const std::string& frameName, int frameCount);
     
-    // if the SpriteFrames are initilized
-    static bool ms_isSpriteFramesInitialized;
+    // init all the Animates to accelerate the creating of Sprites, called in the first constructor of Drip
+    static bool initAnimates(void);
+    
+    // if the Animates are initilized
+    static bool ms_isAnimatesInitialized;
     
     // all the SpriteFrames
-    static cocos2d::Map<int, cocos2d::SpriteFrame *> ms_spriteFrames;
+    //static cocos2d::Map<int, cocos2d::SpriteFrame *> ms_spriteFrames;
     
-    // all the AnimationFrames
-    static cocos2d::Map<int, cocos2d::Animation *> ms_animations;
+    // all the Animates
+    static cocos2d::Map<int, cocos2d::Animate *> ms_animates;
 };
 
 #endif /* defined(__MyGame__Drip__) */

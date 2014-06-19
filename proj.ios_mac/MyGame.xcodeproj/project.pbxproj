@@ -89,6 +89,9 @@
 		F991927A194C54AB0059CFB3 /* DemoBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9919277194C54AB0059CFB3 /* DemoBlock.cpp */; };
 		F991927D194C872F0059CFB3 /* Drip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F991927B194C872F0059CFB3 /* Drip.cpp */; };
 		F9E177DD194DD23A00A5D71D /* TestBalkLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9E177DB194DD23A00A5D71D /* TestBalkLayer.cpp */; };
+		F9E177E51951E28000A5D71D /* DemoSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9E177E31951E28000A5D71D /* DemoSprite.cpp */; };
+		F9F227E81951EA0200B54B86 /* balk_fire_01.png in Resources */ = {isa = PBXBuildFile; fileRef = F9F227E61951EA0200B54B86 /* balk_fire_01.png */; };
+		F9F227E91951EA0200B54B86 /* balk_fire_02.png in Resources */ = {isa = PBXBuildFile; fileRef = F9F227E71951EA0200B54B86 /* balk_fire_02.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -319,6 +322,10 @@
 		F9E177DB194DD23A00A5D71D /* TestBalkLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestBalkLayer.cpp; path = ../Classes/TestBalkLayer.cpp; sourceTree = "<group>"; };
 		F9E177DC194DD23A00A5D71D /* TestBalkLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestBalkLayer.h; path = ../Classes/TestBalkLayer.h; sourceTree = "<group>"; };
 		F9E177E1194DD50200A5D71D /* GameMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameMacros.h; path = ../Classes/GameMacros.h; sourceTree = "<group>"; };
+		F9E177E31951E28000A5D71D /* DemoSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DemoSprite.cpp; path = ../Classes/DemoSprite.cpp; sourceTree = "<group>"; };
+		F9E177E41951E28000A5D71D /* DemoSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DemoSprite.h; path = ../Classes/DemoSprite.h; sourceTree = "<group>"; };
+		F9F227E61951EA0200B54B86 /* balk_fire_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = balk_fire_01.png; path = Balk/balk_fire_01.png; sourceTree = "<group>"; };
+		F9F227E71951EA0200B54B86 /* balk_fire_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = balk_fire_02.png; path = Balk/balk_fire_02.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -413,6 +420,8 @@
 				F991927B194C872F0059CFB3 /* Drip.cpp */,
 				F991927C194C872F0059CFB3 /* Drip.h */,
 				F9E177E1194DD50200A5D71D /* GameMacros.h */,
+				F9E177E31951E28000A5D71D /* DemoSprite.cpp */,
+				F9E177E41951E28000A5D71D /* DemoSprite.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -557,6 +566,8 @@
 		F9919270194759210059CFB3 /* Balk */ = {
 			isa = PBXGroup;
 			children = (
+				F9F227E61951EA0200B54B86 /* balk_fire_01.png */,
+				F9F227E71951EA0200B54B86 /* balk_fire_02.png */,
 				F99192731948A9580059CFB3 /* balk_ballnet.png */,
 				F991926E194759190059CFB3 /* balk_fire.png */,
 			);
@@ -769,6 +780,8 @@
 				F98021C81942146100D53890 /* sprite_sheet.plist in Resources */,
 				F991926F1947591A0059CFB3 /* balk_fire.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
+				F9F227E81951EA0200B54B86 /* balk_fire_01.png in Resources */,
+				F9F227E91951EA0200B54B86 /* balk_fire_02.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				F98021C61942146100D53890 /* arial.ttf in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
@@ -804,6 +817,7 @@
 				F98021B51942145400D53890 /* Player.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
+				F9E177E51951E28000A5D71D /* DemoSprite.cpp in Sources */,
 				F98021CC1943493200D53890 /* GameBlock.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				F98021B31942145400D53890 /* GameLayer.cpp in Sources */,

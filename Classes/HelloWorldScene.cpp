@@ -1,6 +1,7 @@
 #include "HelloWorldScene.h"
 #include "BlockFactory.h"
 #include "TestBalkLayer.h"
+#include "GameLayer.h"
 
 
 
@@ -45,8 +46,8 @@ void HelloWorld::reset()
 	//create menu
 	_mainMenu = Menu::create();
 
-	addMenuItem(_mainMenu, "Start Game", CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));
-	addMenuItem(_mainMenu, "Block Factory Test", CC_CALLBACK_1(HelloWorld::menuTestBlockFactory, this));
+	addMenuItem(_mainMenu, "Start Game", CC_CALLBACK_1(HelloWorld::menuStartGameCallback, this));
+	addMenuItem(_mainMenu, "Block Factory Test", CC_CALLBACK_1(HelloWorld::menuTestBlockFactoryCallback, this));
 	addMenuItem(_mainMenu, "Balk Test", CC_CALLBACK_1(HelloWorld::menuTestBalkCallback, this));
 	addMenuItem(_mainMenu, "Exit", CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));
 
@@ -84,22 +85,12 @@ void HelloWorld::addMenuItem(Menu *menu, std::string text, const ccMenuCallback&
 	this->_mainMenu->addChild(item);
 }
 
-
-void HelloWorld::menuCloseCallback(Ref* pSender)
+void HelloWorld::menuStartGameCallback(cocos2d::Ref* pSender)
 {
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WP8) || (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
-	MessageBox("You pressed the close button. Windows Store Apps do not implement a close button.","Alert");
-    return;
-#endif
-
-    Director::getInstance()->end();
-
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    exit(0);
-#endif
+    cocos2d::Director::getInstance()->replaceScene(GameLayer::scene());
 }
 
-void HelloWorld::menuTestBlockFactory(Ref* pSender)
+void HelloWorld::menuTestBlockFactoryCallback(Ref* pSender)
 {
 	this->_mainMenu->setVisible(false);
 	DemoBlock *db = BlockFactory::getBlock(4, 4, demoBlockGap);
@@ -110,6 +101,20 @@ void HelloWorld::menuTestBlockFactory(Ref* pSender)
 void HelloWorld::menuTestBalkCallback(cocos2d::Ref *pSender)
 {
     cocos2d::Director::getInstance()->replaceScene(TestBalkLayer::createScene());
+}
+
+void HelloWorld::menuCloseCallback(Ref* pSender)
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WP8) || (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
+	MessageBox("You pressed the close button. Windows Store Apps do not implement a close button.","Alert");
+    return;
+#endif
+    
+    Director::getInstance()->end();
+    
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    exit(0);
+#endif
 }
 
 void HelloWorld::menuCleanUp(Ref* pSender)

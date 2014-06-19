@@ -18,13 +18,13 @@ public:
     virtual bool init();  
     
     // a selector callback
-    void menuCloseCallback(cocos2d::Ref* pSender);
+    void menuStartGameCallback(cocos2d::Ref* pSender);
 
-	void menuTestBlockFactory(cocos2d::Ref* pSender);
+	void menuTestBlockFactoryCallback(cocos2d::Ref* pSender);
     
     void menuTestBalkCallback(cocos2d::Ref* pSender);
 
-	void menuStartGame(cocos2d::Ref* pSender);
+	void menuCloseCallback(cocos2d::Ref* pSender);
 
 	void menuCleanUp(Ref* pSender);
 

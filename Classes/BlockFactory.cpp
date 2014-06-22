@@ -55,7 +55,6 @@ DemoBlock *BlockFactory::generateBlock(int width, int height, BlockType type)
 		for(int y = 0; y < height; y++)
 		{
 			Sprite *sprite = Sprite::createWithSpriteFrame(_tile1);
-			//Sprite *sprite = Sprite::create("CloseNormal.png");
 			db->addTile(x, y, sprite);
 		}
 	}

@@ -7,6 +7,7 @@ DemoBlock::DemoBlock(int width, int height, float tileWidth, float tileHeight)
 	_height = height <= 0 ? 1:height;
 	_tileWidth = tileWidth;
 	_tileHeight = tileHeight;
+	_resistance = 0;
 	Size contentSize;
 	//contentSize.width = width * tileWidth;
 	//contentSize.height = height * tileHeight;
@@ -47,4 +48,14 @@ DemoBlock * DemoBlock::create(int width, int height, float tileWidth, float tile
 		return db;
 	}
 	return nullptr;
+}
+
+int DemoBlock::getResistance()
+{
+	return _resistance;
+}
+
+void DemoBlock::setResistance(int resistance)
+{
+	_resistance = resistance;
 }
